@@ -1,21 +1,49 @@
-site_name: My Notes
+# 網站基本資訊
+site_name: Bamu's Notes
 site_url: https://a892842486.github.io/shared-notes/
-
-theme:
-  name: material
-  language: zh-TW
-  features:
-    - navigation.sections
-    - navigation.expand
-    - search.suggest
 
 docs_dir: public
 
-plugins:
-  - search
+# 網站主題與外觀
+theme:
+  name: material
+  language: zh-TW
 
+  extra:
+  favicon: images/coffee.svg
+
+  plugins:
+    - search
+
+
+  font:
+    text: Noto Sans TC
+    code: JetBrains Mono
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: 切換深色模式
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: 切換淺色模式
+
+# Markdown 語法擴充
 markdown_extensions:
-  - admonition
-  - tables
+  - nl2br  # 普通文字的單一換行會直接顯示
+  - admonition  # 提示框與警告框
+  - tables  # 支援 Markdown 表格
   - toc:
-      permalink: true
+      permalink: true  # 標題錨點
+
+extra_css:
+  - stylesheets/extra.css
