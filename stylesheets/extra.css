@@ -1,0 +1,201 @@
+
+/* 日間模式：溫和米色 */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #F3EEE5;
+  --md-default-bg-color--light: #F7F3EC;
+  --md-default-bg-color--lighter: #FAF7F1;
+  --md-default-bg-color--lightest: #FFFFFF;
+
+  --md-default-fg-color: #453B32;
+  --md-default-fg-color--light: #756657;
+  --md-default-fg-color--lighter: #918474;
+
+  --md-code-bg-color: #E8DFD2;
+  --md-code-fg-color: #453B32;
+
+  --md-primary-fg-color: #82705C;
+  --md-primary-fg-color--dark: #6E5C49;
+  --md-accent-fg-color: #8A7660;
+}
+
+/* 夜間模式：炭灰背景、白咖啡字 */
+[data-md-color-scheme="slate"] {
+  --md-hue: 30;
+
+  --md-default-bg-color: #252525;
+  --md-default-bg-color--light: #2B2A28;
+  --md-default-bg-color--lighter: #30302F;
+  --md-default-bg-color--lightest: #383633;
+
+  --md-default-fg-color: #E5D8C7;
+  --md-default-fg-color--light: #B9AA98;
+  --md-default-fg-color--lighter: #998B7B;
+
+  --md-code-bg-color: #30302F;
+  --md-code-fg-color: #E5D8C7;
+
+  --md-primary-fg-color: #A9957C;
+  --md-primary-fg-color--dark: #89765F;
+  --md-accent-fg-color: #D0B99A;
+}
+
+/* Navbar：深灰棕色，降低亮度 */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #39332D;
+}
+
+/* 搜尋框也一起調暗 */
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: #2D2925;
+}
+
+/* 圓角：按鈕、搜尋框、提示框 */
+.md-typeset .md-button {
+  border-radius: 10px;
+}
+
+.md-search__form {
+  border-radius: 12px;
+}
+
+.md-typeset .admonition {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 程式碼區塊 */
+.md-typeset pre {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 桌面版：搜尋框在右側，深淺色切換在最右邊 */
+@media screen and (min-width: 76.25em) {
+  .md-header__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .md-header__title {
+    order: 0;
+  }
+
+  /* 搜尋圖示 */
+  .md-header__button[for="__search"] {
+    order: 1;
+  }
+
+  /* 搜尋框 */
+  .md-header__inner > .md-search {
+    order: 2;
+  }
+
+  /* 深淺色切換 */
+  .md-header__option {
+    order: 3;
+    margin-left: 0.5rem;
+  }
+}
+
+/* 左側導覽列：膠囊與平滑動態 */
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link {
+  border-radius: 12px;
+  margin: 3px 8px;
+  padding: 8px 12px;
+  width: auto;
+
+  transition:
+    background-color 220ms ease,
+    color 180ms ease,
+    transform 220ms ease;
+}
+
+/* 滑鼠移上去：背景變亮，輕微向右移動 */
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link:hover {
+  background-color: rgb(138 118 96 / 24%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateX(2px);
+}
+
+/* 深色模式：暖咖啡灰 */
+[data-md-color-scheme="slate"] .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link:hover {
+  background-color: rgb(208 185 154 / 16%);
+}
+
+/* 文件圖示：暖咖啡色 */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.65rem;
+  flex-shrink: 0;
+  background-color: #C8B49A;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6 2h9l5 5v15H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m8 1.5V8h4.5zM7 12h10v1.5H7zm0 4h10v1.5H7z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6 2h9l5 5v15H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m8 1.5V8h4.5zM7 12h10v1.5H7zm0 4h10v1.5H7z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* 文件圖示：細線條、柔和咖啡米色 */
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link::before {
+  content: "";
+  display: inline-block;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+  background-color: #B9AA98;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.75h8l4 4V20.25H6z M14 3.75v4h4 M9 12h6 M9 15.5h6' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 3.75h8l4 4V20.25H6z M14 3.75v4h4 M9 12h6 M9 15.5h6' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* 資料夾圖示：細線條、柔和焦糖色 */
+.md-nav--primary .md-nav__item--nested > .md-nav__link::before {
+  content: "";
+  display: inline-block;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+  background-color: #C0A47D;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3.75 7.5h6l2 2h8.5v9.75H3.75z' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3.75 7.5h6l2 2h8.5v9.75H3.75z' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* 目前選中的導覽項目：暖咖啡色膠囊 */
+.md-sidebar--primary .md-nav__link--active {
+  border-radius: 12px;
+  background-color: rgb(138 118 96 / 18%);
+  transition: background-color 180ms ease;
+}
+
+/* 深色模式：更低調的咖啡灰 */
+[data-md-color-scheme="slate"]
+.md-sidebar--primary .md-nav__link--active {
+  background-color: rgb(208 185 154 / 12%);
+}
+
+/* 隱藏左側導覽列重複的網站標題 */
+.md-sidebar--primary .md-nav--primary > .md-nav__title {
+  display: none;
+}
+
+/* Navbar Logo：自然的圖示與標題比例 */
+.md-header__button.md-logo {
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  margin-right: -0.6rem;
+
+  background-image: url("../images/coffee.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.4rem 1.4rem;
+}
+
+/* 隱藏 Material 原本的 Logo */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  visibility: hidden;
+}
+
