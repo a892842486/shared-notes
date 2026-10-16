@@ -1,0 +1,21 @@
+site_name: My Notes
+site_url: https://a892842486.github.io/shared-notes/
+
+theme:
+  name: material
+  language: zh-TW
+  features:
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+
+docs_dir: public
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
