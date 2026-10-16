@@ -1,12 +1,23 @@
----
+# 筆記範本與工作流程
+
+## 日期格式
+
+### 多行日期
+
 2026-10-16 Created
 2026-10-16 Updated
+
 ---
 
-# GitHub 筆記更新流程
+### 單行日期
 
+2026-10-16 Created
 
-## 1. 上傳筆記至 GitHub
+---
+
+## GitHub 筆記更新流程
+
+### 1. 上傳筆記至 GitHub
 
 ```powershell
 git status
@@ -15,13 +26,13 @@ git commit -m "docs: update notes"
 git push
 ```
 
-## 2. 更新公開網站
+### 2. 更新公開網站
 
 ```powershell
 py -m mkdocs gh-deploy
 ```
 
-## 3. Commit 訊息規範
+### 3. Commit 訊息規範
 
 | 類型 | 用途 | 範例 |
 |---|---|---|
@@ -29,8 +40,3 @@ py -m mkdocs gh-deploy
 | `docs` | 新增特定主題筆記 | `docs: add health notes` |
 | `docs` | 修正錯字 | `docs: fix typos` |
 | `chore` | 修改專案設定或維護事項 | `chore: update config` |
-
-
-
-
-
