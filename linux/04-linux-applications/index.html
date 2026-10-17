@@ -809,7 +809,7 @@
   <a href="#system-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系統監控（System Monitoring）
+        系統資訊與監控（System Monitoring）
       
     </span>
   </a>
@@ -917,7 +917,7 @@
   <a href="#system-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        系統監控（System Monitoring）
+        系統資訊與監控（System Monitoring）
       
     </span>
   </a>
@@ -974,9 +974,10 @@
 
 
 
-<p>2026-10-17 Created</p>
+<p>2026-10-18 Updated</p>
 <hr />
 <h1 id="linux-applications">Linux Applications（應用程式）<a class="headerlink" href="#linux-applications" title="Permanent link">&para;</a></h1>
+<p>一般應用程式負責日常工作與系統操作，不屬於桌面環境或 Rice 本身，可以依照需求搭配不同的 Linux 發行版與桌面環境使用。</p>
 <h2 id="development-tools">開發工具（Development Tools）<a class="headerlink" href="#development-tools" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -989,7 +990,7 @@
 <tbody>
 <tr>
 <td>程式編輯器</td>
-<td><a href="https://code.visualstudio.com/">VS Code</a></td>
+<td><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
 <td>編輯程式碼與管理開發專案。</td>
 </tr>
 <tr>
@@ -1010,29 +1011,39 @@
 </thead>
 <tbody>
 <tr>
-<td>Shell</td>
-<td><a href="https://www.zsh.org/">Zsh</a></td>
-<td>功能豐富，可搭配 Oh My Zsh、Powerlevel10k。</td>
-</tr>
-<tr>
-<td>Shell</td>
-<td><a href="https://fishshell.com/">Fish</a></td>
-<td>提供友善的互動式命令列體驗。</td>
-</tr>
-<tr>
-<td>終端機</td>
+<td>終端機模擬器</td>
 <td><a href="https://sw.kovidgoyal.net/kitty/">Kitty</a></td>
 <td>功能豐富的終端機模擬器。</td>
 </tr>
 <tr>
-<td>終端機</td>
+<td>終端機模擬器</td>
 <td><a href="https://alacritty.org/">Alacritty</a></td>
 <td>著重效能與精簡設計的終端機模擬器。</td>
 </tr>
 <tr>
-<td>終端機分割與工作階段管理</td>
+<td>命令列 Shell</td>
+<td><a href="https://www.zsh.org/">Zsh</a></td>
+<td>功能豐富，可搭配 Oh My Zsh、Powerlevel10k 自訂命令列體驗。</td>
+</tr>
+<tr>
+<td>命令列 Shell</td>
+<td><a href="https://fishshell.com/">Fish</a></td>
+<td>提供友善的互動式命令列體驗，具備自動建議與語法提示等功能。</td>
+</tr>
+<tr>
+<td>Zsh 配置框架</td>
+<td><a href="https://ohmyz.sh/">Oh My Zsh</a></td>
+<td>提供 Zsh 的外掛、主題與設定管理。</td>
+</tr>
+<tr>
+<td>Zsh 主題</td>
+<td><a href="https://github.com/romkatv/powerlevel10k">Powerlevel10k</a></td>
+<td>自訂命令列提示符的外觀與資訊。</td>
+</tr>
+<tr>
+<td>工作階段管理</td>
 <td><a href="https://github.com/tmux/tmux/wiki">tmux</a></td>
-<td>在終端機中管理多個窗格與工作階段。</td>
+<td>在終端機中管理多個工作階段與分割窗格。</td>
 </tr>
 <tr>
 <td>模糊搜尋</td>
@@ -1041,7 +1052,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="system-monitoring">系統監控（System Monitoring）<a class="headerlink" href="#system-monitoring" title="Permanent link">&para;</a></h2>
+<h2 id="system-monitoring">系統資訊與監控（System Monitoring）<a class="headerlink" href="#system-monitoring" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1052,14 +1063,14 @@
 </thead>
 <tbody>
 <tr>
-<td>硬體與系統監控</td>
+<td>系統監控</td>
 <td><a href="https://github.com/aristocratos/btop">btop</a></td>
-<td>查看 CPU、記憶體、磁碟與程序等資訊。</td>
+<td>查看 CPU、記憶體、磁碟與程序等系統資訊。</td>
 </tr>
 <tr>
-<td>系統資訊</td>
-<td><a href="https://github.com/fastfetch-cli/fastfetch">fastfetch</a></td>
-<td>在終端機顯示系統與硬體資訊。</td>
+<td>系統資訊展示</td>
+<td><a href="https://github.com/fastfetch-cli/fastfetch">Fastfetch</a></td>
+<td>在終端機顯示作業系統、硬體與環境資訊。</td>
 </tr>
 </tbody>
 </table>
@@ -1076,7 +1087,7 @@
 <tr>
 <td>辦公軟體</td>
 <td><a href="https://www.onlyoffice.com/">ONLYOFFICE</a></td>
-<td>編輯文件、試算表與簡報。</td>
+<td>編輯文字文件、試算表與簡報。</td>
 </tr>
 </tbody>
 </table>
@@ -1093,7 +1104,7 @@
 <tr>
 <td>瀏覽器</td>
 <td>Helium</td>
-<td>網頁瀏覽工具，之後可補充安裝方式與特色。</td>
+<td>網頁瀏覽工具，之後可補充官方網址、安裝方式與特色。</td>
 </tr>
 </tbody>
 </table>
