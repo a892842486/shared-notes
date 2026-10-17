@@ -110,6 +110,11 @@
     transform 220ms ease;
 }
 
+/* 左側導覽列：子層資料夾縮排 */
+.md-sidebar--primary .md-nav--primary .md-nav__item--nested > .md-nav {
+  padding-left: 1rem;
+}
+
 /* 滑鼠移上去：背景變亮，輕微向右移動 */
 .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link:hover {
   background-color: rgb(138 118 96 / 24%);
