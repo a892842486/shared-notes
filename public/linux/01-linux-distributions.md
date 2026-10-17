@@ -8,10 +8,10 @@
 
 | 發行版 | 特色 | 基礎／關係 |
 |---|---|---|
-| Debian | 重視穩定性，是許多發行版的基礎。 | 獨立發行版 |
-| Ubuntu LTS | 著重穩定性與長期支援；桌面版預設使用 GNOME。 | 基於 Debian |
-| Linux Mint | 提供熟悉的桌面操作體驗，預設桌面環境通常為 Cinnamon。 | 主要基於 Ubuntu |
-| Pop!\_OS | 著重桌面使用體驗與生產力，提供 COSMIC 桌面環境。 | 基於 Ubuntu |
+| Debian | 著重穩定性，是許多發行版的基礎。 | 獨立發行版 |
+| Ubuntu LTS | 操作簡潔，以活動總覽和工作區管理視窗，預設使用 GNOME。 | 基於 Debian |
+| Linux Mint | 介面類似 Windows，採用傳統的開始選單、工作列與系統匣，預設使用 Cinnamon。 | 基於 Ubuntu（另有 LMDE 版本基於 Debian） |
+| Pop!_OS | 著重生產力，支援自動排列視窗，預設使用 COSMIC。 | 基於 Ubuntu |
 
 ## Arch 系
 
@@ -42,5 +42,6 @@
 - **Linux Distribution（Linux 發行版）：** 將 Linux 核心、系統工具、套件管理與其他軟體整合成可使用的作業系統。
 - **Desktop Environment（DE，桌面環境）：** 例如 GNOME、KDE Plasma、Cinnamon、COSMIC。
 - **Window Manager（WM，視窗管理器）：** 負責管理視窗的排列、移動與顯示，例如 Hyprland、Niri。
+- **LMDE（Linux Mint Debian Edition）：** Linux Mint 的 Debian 版本，直接基於 Debian，而非 Ubuntu，提供與一般 Linux Mint 相似的桌面使用體驗。
 
 > Linux 嚴格來說是核心；Ubuntu、Fedora、Arch Linux 等才是完整的 Linux 發行版。

@@ -40,3 +40,8 @@ py -m mkdocs gh-deploy
 | `docs` | 新增特定主題筆記 | `docs: add health notes` |
 | `docs` | 修正錯字 | `docs: fix typos` |
 | `chore` | 修改專案設定或維護事項 | `chore: update config` |
+
+### 4. 運行本地專案
+```powershell
+py -m mkdocs serve
+```

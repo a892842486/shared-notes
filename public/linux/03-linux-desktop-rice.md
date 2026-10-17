@@ -10,20 +10,23 @@
 
 | 名稱 | 特色 | 搭配環境 |
 |---|---|---|
-| Caelestia Dot | 整套桌面配置，包含桌面介面與相關設定。 | Hyprland |
-| illogical-impulse | 整套桌面配置，著重視覺效果與桌面互動。 | Hyprland |
-| end-4 | 整套桌面配置，具有豐富的桌面介面與客製化效果。 | Hyprland |
-| ML4W Dotfiles | 整合式桌面配置，提供安裝與設定工具。 | 主要搭配 Hyprland |
+| [end-4 / illogical-impulse](https://github.com/end-4/dots-hyprland) | 壁紙自動配色、流暢動畫、即時視窗預覽，並整合搜尋與 AI 功能。 | Hyprland |
+| [ML4W Dotfiles](https://github.com/mylinuxforwork/dotfiles) | 提供多種主題與外觀設定，可透過圖形化工具調整面板、模糊效果、動畫與快捷鍵。 | 主要搭配 Hyprland |
+| [Caelestia Dot](https://github.com/caelestia-dots/caelestia) | 具有流暢動畫、動態配色與變形式桌面介面，整體風格現代且具有科技感。 | Hyprland |
+| [bitzdots](https://github.com/bitzzdev/bitzdots) | 著重低資源消耗與自動配色，官方宣稱整套桌面閒置時約使用 250–300 MB RAM。 | Hyprland |
+| [hyprland-glassmorphism](https://github.com/v-o-h-s/hyprland-glassmorphism) | 採用半透明磨砂玻璃、模糊背景、白色細邊框與黑白灰配色。 | Hyprland |
 
 > Dotfiles 原本是指保存程式與系統設定的檔案；這裡的「桌面配置套件」則是指將多份設定與相關工具整合起來的專案。
 
 ## 桌面 Shell
 
-桌面 Shell 負責提供使用者與桌面互動的介面，例如面板、選單、小工具及其他桌面功能。
+桌面 Shell 負責提供使用者與桌面互動的介面，例如面板、選單、小工具、通知及其他桌面功能。
 
-| 名稱 | 特色 | 搭配環境 |
+| 名稱 | 特色 | 搭配合成器 |
 |---|---|---|
-| Caelestia Shell | 提供桌面互動介面與整合式桌面功能。 | 主要搭配 Hyprland |
+| [Caelestia Shell](https://github.com/caelestia-dots/shell) | 提供流暢動畫、動態配色與可變化的桌面介面，與 Caelestia Dot 深度整合。 | 主要搭配 Hyprland |
+| [Noctalia Shell](https://github.com/noctalia-dev/noctalia) | 整合面板、應用程式啟動器、通知、控制中心與桌面小工具，支援動態配色。 | Niri、Hyprland、Sway 等 |
+| [DankMaterialShell（DMS）](https://github.com/AvengeMedia/DankMaterialShell) | 提供完整桌面介面、控制中心、動態主題與應用程式啟動器，整合多種桌面服務。 | Niri、Hyprland、Sway 等 |
 
 ### 特殊案例
 

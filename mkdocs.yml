@@ -8,8 +8,6 @@ docs_dir: public
 theme:
   name: material
   language: zh-TW
-
-  extra:
   favicon: images/coffee.svg
 
   plugins:
