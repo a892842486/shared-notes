@@ -83,6 +83,14 @@ Desktop Shell 負責提供使用者與桌面互動的介面，例如面板、選
 | 應用程式圖示 | [Papirus Icon](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)、[Tela Circle Icon](https://github.com/vinceliuice/Tela-circle-icon-theme) | 統一應用程式圖示的風格。 |
 | 桌布 | [Wallhaven](https://wallhaven.cc/) | 搜尋與取得桌面背景圖片。 |
 
+### 配色方案（Color Schemes）
+
+| 名稱 | 特色 |
+|---|---|
+| [Catppuccin](https://catppuccin.com/) | 柔和、低對比，提供多種配色變體。 |
+| [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) | 深色背景搭配藍紫色系。 |
+| [Nord](https://www.nordtheme.com/) | 以冷色調為主的配色方案。 |
+
 ### 操作配置（Interaction）
 
 | 項目 | 說明 |

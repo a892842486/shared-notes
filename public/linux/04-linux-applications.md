@@ -38,16 +38,15 @@
 | 類別 | 軟體 | 特色／用途 |
 |---|---|---|
 | 辦公軟體 | [ONLYOFFICE](https://www.onlyoffice.com/) | 編輯文字文件、試算表與簡報。 |
+| 桌面便條 | [Sticky](https://github.com/linuxmint/sticky) | 記錄臨時想法與待辦事項。 |
 
 ## 網路與瀏覽器（Web & Browsers）
 
 | 類別 | 軟體 | 特色／用途 |
 |---|---|---|
-| 瀏覽器 | Helium | 網頁瀏覽工具，之後可補充官方網址、安裝方式與特色。 |
+| 瀏覽器 | [Helium](https://helium.computer/) | 注重隱私與簡潔體驗的網頁瀏覽器。 |
 
 ## 待研究項目
 
-- [ ] 比較不同終端機模擬器。
-- [ ] 比較 Zsh 與 Fish 的使用差異。
 - [ ] 整理常用命令列工具。
 - [ ] 補充各軟體在不同 Linux 發行版的安裝方式。
