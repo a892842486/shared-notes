@@ -23,4 +23,3 @@ boss_encounter_path=F:\Guild Wars 2 Log\addons\arcdps\arcdps.cbtlogs
 ## 注意事項
 
 arcdps 的儲存路徑與 ArcDPSLog Manager 的讀取路徑是兩項獨立設定。 搬移日誌資料夾時，兩邊都要修改，否則管理器可能無法顯示新紀錄。
-
