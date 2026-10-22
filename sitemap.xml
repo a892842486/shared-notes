@@ -2,74 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://a892842486.github.io/shared-notes/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/template/</loc>
-         <lastmod>2026-10-21</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/Remote-Access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/</loc>
-         <lastmod>2026-10-21</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/Remote-Access/01-sunshine-moonlight/</loc>
-         <lastmod>2026-10-21</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/Remote-Access/02-moonlight-%E6%B5%81%E9%87%8F%E8%A8%AD%E5%AE%9A%E8%A3%9C%E5%85%85/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/game/Guild-Wars-2/arcdps-%E4%BF%AE%E6%94%B9%E5%84%B2%E5%AD%98%E4%BD%8D%E7%BD%AE/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/health/%E5%B1%85%E5%AE%B6%E9%87%8D%E8%A8%93AB%E6%97%A5/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/health/%E8%9B%8B%E7%99%BD%E7%B2%89%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/health/%E8%9B%8B%E7%99%BD%E9%A1%9E%E9%A3%9F%E5%93%81%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/linux/00-linux-desktop-enviroment/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/linux/01-linux-distributions/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/linux/02-linux-window-managers/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/linux/03-linux-desktop-rice/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/linux/04-linux-applications/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
-         <loc>https://a892842486.github.io/shared-notes/linux/Raspberry-Pi-%E6%A8%B9%E8%8E%93%E6%B4%BE%E5%85%A5%E9%96%80%E7%AD%86%E8%A8%98/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <loc>https://a892842486.github.io/shared-notes/linux/05-linux-gaming/</loc>
+         <lastmod>2026-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/linux/raspberry-pi-%E6%A8%B9%E8%8E%93%E6%B4%BE%E5%85%A5%E9%96%80%E7%AD%86%E8%A8%98/</loc>
+         <lastmod>2026-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/linux/%E5%AE%89%E8%A3%9D%20linux%20%E9%9B%99%E7%B3%BB%E7%B5%B1/</loc>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/misc/Mac%E8%A8%88%E7%AE%97%E6%A9%9F%E6%AF%94%E8%BC%83/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/misc/MkDocs/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/misc/%E5%94%90%E9%B3%B3%E7%9A%84%E7%95%AA%E8%8C%84%E9%90%98%E5%B7%A5%E4%BD%9C%E6%B3%95/</loc>
-         <lastmod>2026-10-21</lastmod>
+         <lastmod>2026-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/</loc>
+         <lastmod>2026-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/remote-access/01-sunshine-moonlight/</loc>
+         <lastmod>2026-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/remote-access/02-moonlight-%E6%B5%81%E9%87%8F%E8%A8%AD%E5%AE%9A%E8%A3%9C%E5%85%85/</loc>
+         <lastmod>2026-10-22</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/shopping/%E9%8D%B5%E7%9B%A4-%E6%BB%91%E9%BC%A0-%E6%89%8B%E6%8A%8A/</loc>
+         <lastmod>2026-10-22</lastmod>
     </url>
 </urlset>
