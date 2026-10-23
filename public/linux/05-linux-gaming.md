@@ -36,3 +36,10 @@ steam > 自動安裝 Proton 相容 windows 遊戲
 - [Lutris](https://lutris.net/)
 - [Bottles](https://usebottles.com/)
 - [PortProton（GitHub）](https://github.com/Castro-Fidel/PortWINE)
+
+## 手機遊戲 (類似 windows bluestack 模擬器)
+
+Linux 可研究的 Android 遊戲執行方案，實際可行性與遊戲相容性尚未確認。
+
+- Waydroid
+- Liwinux
