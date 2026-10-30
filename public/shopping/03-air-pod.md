@@ -11,7 +11,12 @@
 > - 優先考慮耳夾式 (C 環)、開孔環形 (?)。
 > - 重視長時間佩戴的舒適度、日常通話，以及與 iPhone、Windows、Mac mini 的連線便利性。
 
+- Air Pods 5 適合當主耳機 (健身房、專注聽歌、抗噪無打擾)
+- Sony LinkBuds Clip 適合當副耳機 (安靜辦公室、住家)
 - 目前考慮 Sony LinkBuds Clip，但還是要實際帶過才能知道會不會痛。
+- 或 Air Pods 5 想聽環境帶單耳就好，實際帶過不會痛。
+- costdown 版本 JLab Flex Open NT$1680 (美國)。但要注意，一分錢一分貨，這東西是可以用好幾年的。
+
 
 ## 型號與價格
 

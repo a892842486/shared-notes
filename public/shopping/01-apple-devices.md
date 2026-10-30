@@ -7,7 +7,7 @@
 ## 懶人包
 
 - iPhone 15（128GB）
-- iPad Air（11 吋）
+- iPad（11 吋）
 - MacBook Air（13.6 吋）
 - Mac mini（M6／16GB RAM）
 
@@ -31,7 +31,7 @@
 
 ## iPad
 
-> 我選擇 iPad Air (11 吋)
+> 我選擇 iPad (11 吋)
 
 | 產品 | 晶片 | RAM | 新機參考價格 | 評價 |
 |---|---|---:|---:|---|
