@@ -1,0 +1,3888 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://a892842486.github.io/shared-notes/Tech/programming/video-downloader-03-%E6%8A%80%E8%A1%93%E7%B4%B0%E7%AF%80/">
+      
+      
+        <link rel="prev" href="../video-downloader-02-%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B/">
+      
+      
+        <link rel="next" href="../../remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/coffee.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Video downloader 03 技術細節 - Bamu's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans TC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#video-downloader" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../../.." title="Bamu&#39;s Notes" class="md-header__button md-logo" aria-label="Bamu's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bamu's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Video downloader 03 技術細節
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="切換深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切換深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="切換淺色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切換淺色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="搜尋">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清除" aria-label="清除" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bamu&#39;s Notes" class="md-nav__button md-logo" aria-label="Bamu's Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bamu's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    歡迎來到 Bamu's Notes ☕
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    筆記範本與工作流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tech
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/00-linux-desktop-enviroment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 linux desktop enviroment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/01-linux-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 linux distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/02-linux-window-managers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 linux window managers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/03-linux-desktop-rice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 linux desktop rice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/04-linux-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 linux applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/05-linux-gaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 linux gaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/raspberry-pi-%E6%A8%B9%E8%8E%93%E6%B4%BE%E5%85%A5%E9%96%80%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raspberry pi 樹莓派入門筆記
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/%E5%AE%89%E8%A3%9D%20linux%20%E9%9B%99%E7%B3%BB%E7%B5%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安裝 linux 雙系統
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../render-%E5%85%8D%E8%B2%BB%20PostgreSQL%2030%20%E5%A4%A9%E5%88%B0%E6%9C%9F%EF%BC%8C%E9%87%8D%E5%BB%BA%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    render 免費 PostgreSQL 30 天到期，重建伺服器方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video-downloader-01-%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 01 介紹
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video-downloader-02-%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 02 運作流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 03 技術細節
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 03 技術細節
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manifestjsonchrome-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        manifest.json｜Chrome Extension 設定入口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="manifest.json｜Chrome Extension 設定入口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backgroundjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        background.js｜背景事件與下載任務管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="background.js｜背景事件與下載任務管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contentjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        content.js｜網頁影片偵測與下載按鈕
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="content.js｜網頁影片偵測與下載按鈕">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contentcss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        content.css｜網頁下載按鈕樣式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popuphtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        popup.html｜擴充功能視窗結構
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popupcss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        popup.css｜擴充功能視窗樣式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popupjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        popup.js｜擴充功能視窗互動
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="popup.js｜擴充功能視窗互動">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostexamplejson-hostjsonnative-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host.example.json / host.json｜Native Host 設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostbatpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host.bat｜Python 啟動腳本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostpynative-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host.py｜Native Messaging 通訊入口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="host.py｜Native Messaging 通訊入口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要觀念
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloaderpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        downloader.py｜影片下載核心
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="downloader.py｜影片下載核心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要觀念
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote access
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Remote access
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 遠端連線方式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../remote-access/01-sunshine-moonlight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 sunshine moonlight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../remote-access/02-moonlight-%E6%B5%81%E9%87%8F%E8%A8%AD%E5%AE%9A%E8%A3%9C%E5%85%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 moonlight 流量設定補充
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../remote-access/NAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../remote-access/%E8%99%9B%E6%93%AC%E8%9E%A2%E5%B9%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虛擬螢幕
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Game
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FF14
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FF14
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game/FF14/%E4%BB%A3%E8%BE%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    代辦
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game/FF14/%E5%89%AF%E8%81%B7%E6%A5%AD%20%E7%B7%B4%E7%AD%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    副職業 練等
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game/FF14/%E9%A3%9F%E7%89%A9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    食物
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guild Wars 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guild Wars 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../game/Guild-Wars-2/arcdps-%E4%BF%AE%E6%94%B9%E5%84%B2%E5%AD%98%E4%BD%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arcdps 修改儲存位置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Life
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Life
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Health
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Health
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/health/%E5%B1%85%E5%AE%B6%E9%87%8D%E8%A8%93AB%E6%97%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    居家重訓AB日
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/health/%E8%9B%8B%E7%99%BD%E7%B2%89%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    蛋白粉價格比較
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/health/%E8%9B%8B%E7%99%BD%E9%A1%9E%E9%A3%9F%E5%93%81%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    蛋白類食品價格比較
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shopping
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Shopping
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/00-apple-ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 apple ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/01-apple-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 apple devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/02-apple-watch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 apple watch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/03-air-pod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 air pod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/Mac%E8%A8%88%E7%AE%97%E6%A9%9F%E6%AF%94%E8%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mac計算機比較
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/%E6%95%B8%E4%BD%8D%E9%8B%BC%E7%90%B4%E9%81%B8%E6%93%87-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    數位鋼琴選擇 01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/%E6%95%B8%E4%BD%8D%E9%8B%BC%E7%90%B4%E9%81%B8%E6%93%87-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    數位鋼琴選擇 02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/%E7%AD%86%E9%9B%BB%E7%AB%8B%E6%9E%B6%E6%80%9D%E8%80%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    筆電立架思考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/%E8%A1%8C%E5%8B%95%E9%85%8D%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    行動配件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../life/shopping/%E9%8D%B5%E7%9B%A4-%E6%BB%91%E9%BC%A0-%E6%89%8B%E6%8A%8A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    鍵盤 滑鼠 手把
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Productivity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Productivity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/MkDocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/Windows%20%E6%89%B9%E6%AC%A1%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows 批次重新命名
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/%E5%94%90%E9%B3%B3%E7%9A%84%E7%95%AA%E8%8C%84%E9%90%98%E5%B7%A5%E4%BD%9C%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    唐鳳的番茄鐘工作法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/%E5%9D%90%E5%A7%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    坐姿
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Work
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/git-branch-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git branch workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5_2" id="__nav_6_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software map
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software map
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/00-game-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 game job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/00-web-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 web job
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/00-%E8%A3%9C%E5%85%85%E9%A1%9E%E4%BB%A3%E8%BE%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 補充類代辦
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-C%23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 C#
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-c%2B%2B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 c++
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-c-family/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 c family
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 c
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-cloud-devops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 cloud devops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-js-ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 js ts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/software-map/01-ruby-on-rails/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 ruby on rails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5_3" id="__nav_6_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Work log
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Work log
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026 05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026 06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026 07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026 08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/2026-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/work-log/2026-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manifestjsonchrome-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        manifest.json｜Chrome Extension 設定入口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="manifest.json｜Chrome Extension 設定入口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backgroundjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        background.js｜背景事件與下載任務管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="background.js｜背景事件與下載任務管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contentjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        content.js｜網頁影片偵測與下載按鈕
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="content.js｜網頁影片偵測與下載按鈕">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contentcss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        content.css｜網頁下載按鈕樣式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popuphtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        popup.html｜擴充功能視窗結構
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popupcss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        popup.css｜擴充功能視窗樣式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#popupjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        popup.js｜擴充功能視窗互動
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="popup.js｜擴充功能視窗互動">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互動關係
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostexamplejson-hostjsonnative-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host.example.json / host.json｜Native Host 設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostbatpython" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host.bat｜Python 啟動腳本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostpynative-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        host.py｜Native Messaging 通訊入口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="host.py｜Native Messaging 通訊入口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要觀念
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloaderpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        downloader.py｜影片下載核心
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="downloader.py｜影片下載核心">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心架構
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        資料流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要觀念
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>2026-11-12 Created</p>
+<hr />
+<h1 id="video-downloader">Video Downloader 檔案詳解<a class="headerlink" href="#video-downloader" title="Permanent link">&para;</a></h1>
+<h2 id="manifestjsonchrome-extension">manifest.json｜Chrome Extension 設定入口<a class="headerlink" href="#manifestjsonchrome-extension" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 定義擴充功能的基本資訊、權限與程式載入方式。</p>
+<h3 id="_1">核心架構<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>基本設定</strong></p>
+<ul>
+<li><code>manifest_version: 3</code>：使用 Chrome Manifest V3。</li>
+<li><code>action</code>：點擊圖示時，開啟 <code>popup/popup.html</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>權限管理</strong></p>
+<ul>
+<li><code>permissions</code>：允許使用分頁、儲存、網路監聽及 Native Messaging 等 Chrome API。</li>
+<li><code>host_permissions</code>：允許存取 HTTP、HTTPS 網站。</li>
+</ul>
+</li>
+<li>
+<p><strong>程式載入</strong></p>
+<ul>
+<li><code>content_scripts</code>：將 <code>content.js</code>、<code>content.css</code> 注入網頁。</li>
+<li><code>background.service_worker</code>：指定 <code>background.js</code> 處理背景事件。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_2">資料流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><code>Chrome 載入擴充功能</code> → <code>讀取 manifest.json</code> → <code>載入背景程式、網頁腳本與 Popup 設定</code></p>
+<h3 id="_3">互動關係<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>background.js</code>：指定為背景 Service Worker。</li>
+<li><code>content.js / content.css</code>：指定注入網頁的程式與樣式。</li>
+<li><code>popup.html</code>：指定點擊擴充功能圖示後開啟的視窗。</li>
+</ul>
+<h2 id="backgroundjs">background.js｜背景事件與下載任務管理<a class="headerlink" href="#backgroundjs" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 負責偵測影片串流來源、管理下載任務，以及 Chrome 與 Python 之間的通訊。</p>
+<h3 id="_4">核心架構<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>影片偵測</strong></p>
+<ul>
+<li><code>chrome.webRequest</code>：監聽網路請求，偵測 HLS（<code>.m3u8</code>）影片來源。</li>
+<li><code>hlsSources</code>：依分頁記錄影片網址，切換或關閉分頁時清除。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載任務管理</strong></p>
+<ul>
+<li><code>tasks</code>：管理下載任務、進度與狀態。</li>
+<li><code>chrome.storage.local</code>：保存下載紀錄，背景程式重啟後可恢復。</li>
+<li><code>saveQueue</code>：依序儲存，避免非同步寫入衝突。</li>
+</ul>
+</li>
+<li>
+<p><strong>Native Messaging</strong></p>
+<ul>
+<li><code>connectDownload()</code>：每個任務建立獨立連線，將下載指令傳給 Python。</li>
+<li><code>port.onMessage</code>：接收下載進度、完成或錯誤等事件。</li>
+<li><code>port.onDisconnect</code>：處理連線中斷，更新任務狀態。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載控制</strong></p>
+<ul>
+<li><code>startDownload()</code>：檢查網址與重複任務，準備 HLS 備援來源，建立並啟動下載。</li>
+<li><code>cancelDownload()</code>：更新取消狀態、中斷連線並保存紀錄。</li>
+</ul>
+</li>
+<li>
+<p><strong>Chrome 訊息入口</strong></p>
+<ul>
+<li><code>chrome.runtime.onMessage</code>：接收其他擴充功能程式的指令。</li>
+<li>支援 <code>download</code>、<code>getDownloadTasks</code>、<code>cancelDownload</code>。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_5">資料流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><strong>下載指令：</strong></p>
+<p><code>content.js</code> → <code>background.js</code> → <code>Native Messaging</code> → <code>host.py</code> → <code>downloader.py</code></p>
+<p><strong>下載進度：</strong></p>
+<p><code>downloader.py</code> → <code>host.py</code> → <code>background.js</code> → <code>Chrome Storage</code> → <code>popup.js</code></p>
+<h3 id="_6">互動關係<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>manifest.json</code>：指定 <code>background.js</code> 為背景 Service Worker。</li>
+<li><code>content.js</code>：接收網頁下載按鈕發送的下載請求。</li>
+<li><code>popup.js</code>：提供下載任務資料，接收取消下載指令。</li>
+<li><code>chrome.storage.local</code>：保存下載任務與狀態，供 Popup 讀取。</li>
+<li><code>host.py</code>：<code>background.js</code> 透過 Native Messaging 向它傳送下載指令，並接收回傳的進度與結果。</li>
+</ul>
+<h2 id="contentjs">content.js｜網頁影片偵測與下載按鈕<a class="headerlink" href="#contentjs" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 偵測網頁中的影片播放器、顯示下載按鈕，並將下載請求交給 <code>background.js</code>。</p>
+<h3 id="_7">核心架構<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>影片偵測</strong></p>
+<ul>
+<li><code>detectVideos()</code>：尋找網頁中的 <code>&lt;video&gt;</code> 元素。</li>
+<li><code>MutationObserver</code>：監聽網頁內容變化，偵測動態載入的影片。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載按鈕管理</strong></p>
+<ul>
+<li><code>addDownloadButton()</code>：為影片建立下載按鈕，避免重複建立。</li>
+<li><code>updateButtonPosition()</code>：依照影片位置調整按鈕，影片不在畫面內時隱藏。</li>
+<li><code>updateAllButtons()</code>：更新按鈕位置，並清除已移除影片的按鈕。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載請求</strong></p>
+<ul>
+<li><code>chrome.runtime.sendMessage()</code>：將網頁網址、標題與下載路徑傳給 <code>background.js</code>。</li>
+<li><code>background.js</code>：統一管理下載任務。</li>
+</ul>
+</li>
+<li>
+<p><strong>設定同步</strong></p>
+<ul>
+<li><code>chrome.storage.local</code>：讀取下載路徑與按鈕顯示設定。</li>
+<li><code>chrome.storage.onChanged</code>：同步 Popup 修改的按鈕開關。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_8">資料流程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><code>網頁 &lt;video&gt;</code> → <code>content.js 偵測</code> → <code>顯示下載按鈕</code> → <code>使用者點擊</code> → <code>background.js</code></p>
+<h3 id="_9">互動關係<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>manifest.json</code>：指定將 <code>content.js</code> 注入網頁。</li>
+<li><code>content.css</code>：負責下載按鈕的外觀。</li>
+<li><code>popup.js</code>：透過 Chrome Storage 共用下載路徑與按鈕開關設定。</li>
+<li><code>background.js</code>：接收下載請求，負責後續任務管理與 Python 通訊。</li>
+</ul>
+<h2 id="contentcss">content.css｜網頁下載按鈕樣式<a class="headerlink" href="#contentcss" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 設定網頁中「⬇ 下載」按鈕的外觀。</p>
+<ul>
+<li>設定按鈕顏色、大小、陰影與滑鼠懸停效果。</li>
+<li>使用 <code>position: fixed</code>，讓按鈕能依照影片位置顯示。</li>
+<li>使用高 <code>z-index</code>，避免被網頁其他元素遮擋。</li>
+</ul>
+<p><strong>互動關係：</strong></p>
+<ul>
+<li><code>content.js</code>：負責建立按鈕、控制位置與顯示狀態。</li>
+<li><code>content.css</code>：負責按鈕的視覺樣式。</li>
+</ul>
+<h2 id="popuphtml">popup.html｜擴充功能視窗結構<a class="headerlink" href="#popuphtml" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 定義點擊 Chrome 擴充功能圖示後顯示的操作介面。</p>
+<ul>
+<li><strong>下載按鈕開關</strong>：控制網頁中是否顯示下載按鈕。</li>
+<li><strong>下載位置</strong>：讓使用者設定影片儲存路徑。</li>
+<li><strong>下載清單</strong>：顯示下載任務、數量與狀態。</li>
+<li><strong>狀態訊息</strong>：顯示操作提示。</li>
+</ul>
+<p><strong>互動關係：</strong></p>
+<ul>
+<li><code>manifest.json</code>：指定開啟 <code>popup.html</code>。</li>
+<li><code>popup.css</code>：負責視窗外觀。</li>
+<li><code>popup.js</code>：負責介面操作、設定與下載任務顯示。</li>
+</ul>
+<h2 id="popupcss">popup.css｜擴充功能視窗樣式<a class="headerlink" href="#popupcss" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 設定 Popup 視窗的外觀與排版，採用深色主題。</p>
+<ul>
+<li><strong>基本樣式</strong>：視窗大小、背景、文字、輸入框與按鈕。</li>
+<li><strong>設定開關</strong>：下載按鈕的切換動畫與顏色。</li>
+<li><strong>下載清單</strong>：任務卡片、進度條、下載狀態與取消按鈕。</li>
+<li><strong>狀態顏色</strong>：區分下載完成、失敗、跳過與取消等狀態。</li>
+</ul>
+<p><strong>互動關係：</strong></p>
+<ul>
+<li><code>popup.html</code>：提供介面結構。</li>
+<li><code>popup.js</code>：控制介面內容與狀態。</li>
+<li><code>popup.css</code>：負責視覺樣式。</li>
+</ul>
+<h2 id="popupjs">popup.js｜擴充功能視窗互動<a class="headerlink" href="#popupjs" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 管理 Popup 操作介面、使用者設定與下載任務顯示。</p>
+<h3 id="_10">核心架構<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>使用者設定</strong></p>
+<ul>
+<li><code>loadSettings()</code>：讀取下載路徑與下載按鈕開關。</li>
+<li><code>chrome.storage.local</code>：儲存設定，並同步給 <code>content.js</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載任務顯示</strong></p>
+<ul>
+<li><code>renderTask()</code>：建立任務卡片，顯示進度、速度、剩餘時間與狀態。</li>
+<li><code>renderTasks()</code>：更新下載清單，依建立時間排序。</li>
+<li><code>chrome.storage.onChanged</code>：監聽任務變化，即時更新畫面。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載控制</strong></p>
+<ul>
+<li><code>chrome.runtime.sendMessage()</code>：向 <code>background.js</code> 查詢任務或發送取消下載指令。</li>
+<li><code>loadDownloadTasks()</code>：取得已保存的下載紀錄。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_11">資料流程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Popup</code> → <code>Chrome Storage</code> → 保存設定。</li>
+<li><code>Popup</code> ↔ <code>background.js</code> → 查詢任務、取消下載。</li>
+<li><code>background.js</code> → <code>Chrome Storage</code> → <code>Popup</code> 更新下載狀態。</li>
+</ul>
+<h3 id="_12">互動關係<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>popup.html</code>：提供視窗結構。</li>
+<li><code>popup.css</code>：負責視窗外觀。</li>
+<li><code>content.js</code>：透過 Chrome Storage 共用下載按鈕設定。</li>
+<li><code>background.js</code>：提供下載任務資料與控制功能。</li>
+</ul>
+<h2 id="hostexamplejson-hostjsonnative-host">host.example.json / host.json｜Native Host 設定<a class="headerlink" href="#hostexamplejson-hostjsonnative-host" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 告訴 Chrome 如何找到本機 Python 程式，以及允許哪些擴充功能連線。</p>
+<ul>
+<li><code>host.example.json</code>：提供其他使用者參考的設定範本。</li>
+<li><code>host.json</code>：實際使用的設定檔，包含本機啟動路徑與 Extension ID。</li>
+<li><code>name</code>：Native Host 名稱，對應 <code>background.js</code> 的 <code>HOST_NAME</code>。</li>
+<li><code>path</code>：指定啟動程式 <code>host.bat</code>。</li>
+<li><code>allowed_origins</code>：限制哪些 Chrome Extension 可以連線。</li>
+<li><code>type: stdio</code>：使用標準輸入與輸出傳遞訊息。</li>
+</ul>
+<p><strong>互動關係：</strong></p>
+<p><code>background.js</code> → <code>Chrome Native Messaging</code> → <code>host.json</code>（Chrome 查找註冊設定）→ <code>host.bat</code> → <code>host.py</code></p>
+<h2 id="hostbatpython">host.bat｜Python 啟動腳本<a class="headerlink" href="#hostbatpython" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 讓 Chrome 在 Windows 上啟動 Python Native Host。</p>
+<ul>
+<li><code>py -3.13</code>：使用 Python 3.13 執行程式。</li>
+<li><code>%~dp0</code>：取得批次檔所在資料夾路徑，確保能找到 <code>host.py</code>。</li>
+</ul>
+<p><strong>互動關係：</strong></p>
+<p><code>host.json</code> → <code>host.bat</code> → <code>host.py</code></p>
+<h2 id="hostpynative-messaging">host.py｜Native Messaging 通訊入口<a class="headerlink" href="#hostpynative-messaging" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 接收 Chrome 傳來的指令，呼叫 Python 下載模組，再回傳下載結果。</p>
+<h3 id="_13">核心架構<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>訊息接收與回傳</strong></p>
+<ul>
+<li><code>read_message()</code>：讀取 Chrome 傳來的 JSON 訊息。</li>
+<li><code>send_message()</code>：將 Python 的執行結果傳回 Chrome。</li>
+<li>使用 <code>stdin / stdout</code> 與 Chrome 雙向通訊。</li>
+</ul>
+</li>
+<li>
+<p><strong>指令處理</strong></p>
+<ul>
+<li><code>main()</code>：持續接收與處理 Chrome 指令。</li>
+<li><code>ping</code>：測試 Native Host 是否正常連線。</li>
+<li><code>download</code>：呼叫 <code>downloader.py</code> 執行影片下載。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載結果回報</strong></p>
+<ul>
+<li><code>on_progress()</code>：將下載進度回傳 Chrome。</li>
+<li>回傳 <code>completed</code>、<code>skipped</code>、<code>error</code> 等事件。</li>
+<li><code>requestId</code>：讓 Chrome 知道訊息屬於哪個下載任務。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_14">資料流程<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><code>background.js</code> → <code>Native Messaging</code> → <code>host.py</code> → <code>downloader.py</code></p>
+<p>下載進度與結果沿相反方向回傳。</p>
+<h3 id="_15">重要觀念<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Native Host</code>：在電腦上執行、負責與 Chrome 擴充功能通訊的程式。</li>
+<li><code>stdin / stdout</code>：程式接收與輸出訊息的管道。</li>
+<li><code>JSON</code>：Chrome 與 Python 交換資料的格式。</li>
+<li><code>struct</code>：處理 Native Messaging 要求的訊息長度資訊。</li>
+<li><code>progress_callback</code>：下載過程中，讓 <code>downloader.py</code> 回報進度。</li>
+</ul>
+<h2 id="downloaderpy">downloader.py｜影片下載核心<a class="headerlink" href="#downloaderpy" title="Permanent link">&para;</a></h2>
+<p><strong>用途：</strong> 使用 yt-dlp 解析與下載影片，處理畫質、檔案命名、下載進度及備援來源。</p>
+<h3 id="_16">核心架構<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>下載準備</strong></p>
+<ul>
+<li><code>download_video()</code>：接收影片網址、下載路徑與相關參數。</li>
+<li>驗證網址與路徑，自動建立下載資料夾。</li>
+</ul>
+</li>
+<li>
+<p><strong>yt-dlp 下載設定</strong></p>
+<ul>
+<li><code>yt_dlp.YoutubeDL()</code>：使用 yt-dlp 的 Python API 下載影片。</li>
+<li>優先選擇最佳畫質與音訊，必要時透過 FFmpeg 合併為 MP4。</li>
+<li>自訂檔名格式：<code>影片標題 [解析度].副檔名</code>。</li>
+<li>支援續傳，避免覆寫既有檔案。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載進度與結果</strong></p>
+<ul>
+<li><code>report_progress()</code>：每秒回報下載進度、速度、檔案大小與剩餘時間。</li>
+<li><code>progress_callback</code>：將下載資訊交給 <code>host.py</code>，再回傳 Chrome。</li>
+<li>下載完成回傳結果，失敗則回傳錯誤資訊。</li>
+</ul>
+</li>
+<li>
+<p><strong>下載備援與標題處理</strong></p>
+<ul>
+<li>優先解析原始網址，下載失敗時嘗試 HLS 備援網址。</li>
+<li><code>Referer</code>：提供來源網站資訊，協助處理部分網站的存取限制。</li>
+<li><code>fix_video_title()</code>：當 yt-dlp 無法取得合適標題時，使用網頁標題替代。</li>
+</ul>
+</li>
+</ol>
+<h3 id="_17">資料流程<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><code>host.py</code> → <code>download_video()</code> → <code>yt-dlp</code> → <code>FFmpeg（需要時）</code> → <code>本機影片檔案</code></p>
+<p>下載進度與結果：<code>downloader.py</code> → <code>host.py</code> → <code>background.js</code> → <code>popup.js</code></p>
+<h3 id="_18">重要觀念<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>yt-dlp</code>：負責解析影片來源與執行下載的核心工具。</li>
+<li><code>FFmpeg</code>：負責影音合併與必要的格式處理。</li>
+<li><code>progress_hooks</code>：yt-dlp 提供的下載進度回報機制。</li>
+<li><code>fallback_url</code>：主要網址下載失敗時，改用備援 HLS 來源。</li>
+<li><code>PostProcessor</code>：yt-dlp 的處理機制，這裡用於修正影片標題。</li>
+<li><code>stdout / stderr</code>：將一般輸出導向 stderr，避免干擾 Native Messaging 通訊。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

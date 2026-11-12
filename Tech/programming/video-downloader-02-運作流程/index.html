@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://a892842486.github.io/shared-notes/Tech/programming/%E5%85%8D%E8%B2%BB%20PostgreSQL%2030%20%E5%A4%A9%E5%88%B0%E6%9C%9F%EF%BC%8C%E9%87%8D%E5%BB%BA%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B9%E6%B3%95/">
+        <link rel="canonical" href="https://a892842486.github.io/shared-notes/Tech/programming/video-downloader-02-%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B/">
       
       
-        <link rel="prev" href="../../linux/%E5%AE%89%E8%A3%9D%20linux%20%E9%9B%99%E7%B3%BB%E7%B5%B1/">
+        <link rel="prev" href="../video-downloader-01-%E4%BB%8B%E7%B4%B9/">
       
       
-        <link rel="next" href="../../remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/">
+        <link rel="next" href="../video-downloader-03-%E6%8A%80%E8%A1%93%E7%B4%B0%E7%AF%80/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>免費 PostgreSQL 30 天到期，重建伺服器方法 - Bamu's Notes</title>
+        <title>Video downloader 02 運作流程 - Bamu's Notes</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#postgresql-30" class="md-skip">
+        <a href="#video-downloader" class="md-skip">
           跳轉到
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              免費 PostgreSQL 30 天到期，重建伺服器方法
+              Video downloader 02 運作流程
             
           </span>
         </div>
@@ -664,6 +664,62 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../render-%E5%85%8D%E8%B2%BB%20PostgreSQL%2030%20%E5%A4%A9%E5%88%B0%E6%9C%9F%EF%BC%8C%E9%87%8D%E5%BB%BA%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    render 免費 PostgreSQL 30 天到期，重建伺服器方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video-downloader-01-%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 01 介紹
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -683,7 +739,7 @@
   <span class="md-ellipsis">
     
   
-    免費 PostgreSQL 30 天到期，重建伺服器方法
+    Video downloader 02 運作流程
   
 
     
@@ -701,7 +757,7 @@
   <span class="md-ellipsis">
     
   
-    免費 PostgreSQL 30 天到期，重建伺服器方法
+    Video downloader 02 運作流程
   
 
     
@@ -727,10 +783,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        重建 PostgreSQL (它是資料庫管理系統)
+        1. 架構
       
     </span>
   </a>
@@ -738,10 +794,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
+  <a href="#2-chrome" class="md-nav__link">
     <span class="md-ellipsis">
       
-        同伺服器建立第二個 Database
+        2. 開啟 Chrome 擴充功能
       
     </span>
   </a>
@@ -749,10 +805,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database_url" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        修改第二個網站的 DATABASE_URL
+        3. 瀏覽網頁、偵測影片
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 點擊下載按鈕
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Python 實際下載影片
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 顯示下載進度與結果
       
     </span>
   </a>
@@ -763,7 +852,18 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        最終架構
+        完整下載流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心分工
       
     </span>
   </a>
@@ -774,6 +874,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video-downloader-03-%E6%8A%80%E8%A1%93%E7%B4%B0%E7%AF%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 03 技術細節
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1875,6 +2003,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../productivity/Windows%20%E6%89%B9%E6%AC%A1%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows 批次重新命名
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../productivity/%E5%94%90%E9%B3%B3%E7%9A%84%E7%95%AA%E8%8C%84%E9%90%98%E5%B7%A5%E4%BD%9C%E6%B3%95/" class="md-nav__link">
         
   
@@ -1939,10 +2095,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
         
           
-          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
             
   
   
@@ -1960,8 +2116,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1970,6 +2126,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../productivity/work/git-branch-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git branch workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1986,10 +2170,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_4_1" id="__nav_6_4_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_5_2" id="__nav_6_5_2_label" tabindex="0">
             
   
   
@@ -2007,8 +2191,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_4_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2405,10 +2589,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_6_4_2" id="__nav_6_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_5_3" id="__nav_6_5_3_label" tabindex="0">
             
   
   
@@ -2426,8 +2610,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_4_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2683,10 +2867,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postgresql" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        重建 PostgreSQL (它是資料庫管理系統)
+        1. 架構
       
     </span>
   </a>
@@ -2694,10 +2878,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database" class="md-nav__link">
+  <a href="#2-chrome" class="md-nav__link">
     <span class="md-ellipsis">
       
-        同伺服器建立第二個 Database
+        2. 開啟 Chrome 擴充功能
       
     </span>
   </a>
@@ -2705,10 +2889,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database_url" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        修改第二個網站的 DATABASE_URL
+        3. 瀏覽網頁、偵測影片
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 點擊下載按鈕
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Python 實際下載影片
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 顯示下載進度與結果
       
     </span>
   </a>
@@ -2719,7 +2936,18 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        最終架構
+        完整下載流程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        核心分工
       
     </span>
   </a>
@@ -2743,47 +2971,94 @@
 
 
 
-<p>2026 10 30 Created</p>
+<p>2026-11-12 Created</p>
 <hr />
-<h1 id="postgresql-30">免費 PostgreSQL 30 天到期，重建資料庫方法<a class="headerlink" href="#postgresql-30" title="Permanent link">&para;</a></h1>
-<h2 id="postgresql">重建 PostgreSQL (它是資料庫管理系統)<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h2>
-<ol>
-<li>刪除原本過期的 PostgreSQL（確認資料可透過 Seeds 重建）。</li>
-<li>建立新的 PostgreSQL（Region 要和 Rails 網站相同）。</li>
-<li>複製 <code>Internal Database URL</code>。</li>
-<li>到網站 <code>Environment → DATABASE_URL</code>，貼上新網址、儲存並重新部署。</li>
-</ol>
-<h2 id="database">同伺服器建立第二個 Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>用途：兩個 Rails 專案使用不同 Database，避免資料表、Migration 衝突。</p>
-</blockquote>
-<ol>
-<li>進入新建立的 PostgreSQL → <code>Connect → PSQL Command</code>。</li>
-<li>PSQL Command：讓 Mac 終端機連線到 Render PostgreSQL 的指令。</li>
-<li>複製整串 PSQL Command，貼到終端機執行。</li>
-<li>成功連線後，輸入：</li>
-</ol>
-<pre><code class="language-sql">CREATE DATABASE bamu_production;
+<h1 id="video-downloader">Video Downloader 運作流程<a class="headerlink" href="#video-downloader" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 架構<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">video_downloader/
+│
+├── manifest.json          # 擴充功能入口：設定權限、載入哪些檔案
+├── background.js          # 下載管理中心：接收指令、管理任務與下載狀態
+│
+├── content/                # 網頁上的下載按鈕
+│   ├── content.js         # 偵測網頁影片、建立下載按鈕
+│   └── content.css        # 下載按鈕的外觀
+│
+├── popup/                  # 點擊 Chrome 擴充功能圖示後的視窗
+│   ├── popup.html         # 視窗有哪些功能與區塊
+│   ├── popup.css          # 視窗的深色主題、按鈕與排版
+│   └── popup.js           # 操作設定、顯示下載進度與取消下載
+│
+└── native/                 # 電腦端：負責真正下載影片
+    ├── host.py            # Chrome 與 Python 的溝通橋樑
+    ├── downloader.py      # 使用 yt-dlp 下載、合併與儲存影片
+    ├── host.bat           # 啟動 Python 程式
+    ├── host.json          # 告訴 Chrome 程式在哪裡、誰能連線
+    └── host.example.json  # 提供其他使用者的設定範本
 </code></pre>
-<ol>
-<li>成功會顯示：</li>
-</ol>
-<pre><code class="language-text">CREATE DATABASE
+<h2 id="2-chrome">2. 開啟 Chrome 擴充功能<a class="headerlink" href="#2-chrome" title="Permanent link">&para;</a></h2>
+<p>使用者點擊 Chrome 工具列上的 Video Downloader 圖示。</p>
+<ul>
+<li><code>manifest.json</code>：告訴 Chrome 要開啟哪個視窗、載入哪些程式。</li>
+<li><code>popup.html</code>：建立視窗內容，例如設定、下載清單。</li>
+<li><code>popup.css</code>：決定視窗的深色主題、顏色與排版。</li>
+<li><code>popup.js</code>：讓設定開關、下載清單與取消按鈕能夠運作。</li>
+</ul>
+<h2 id="3">3. 瀏覽網頁、偵測影片<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>使用者打開有影片的網頁。</p>
+<ul>
+<li><code>content.js</code>：尋找網頁播放器，建立下載按鈕。</li>
+<li><code>content.css</code>：決定網頁下載按鈕的外觀。</li>
+<li><code>background.js</code>：在背景監聽影片串流來源，記錄可用的 HLS 網址。</li>
+</ul>
+<h2 id="4">4. 點擊下載按鈕<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>使用者點擊下載，Chrome 開始建立下載任務。</p>
+<ul>
+<li><code>content.js</code>：將下載請求傳給 <code>background.js</code>。</li>
+<li><code>background.js</code>：建立任務、檢查重複下載、準備備援網址。</li>
+<li><code>background.js</code>：透過 Native Messaging 將下載指令傳給 Python。</li>
+</ul>
+<h2 id="5-python">5. Python 實際下載影片<a class="headerlink" href="#5-python" title="Permanent link">&para;</a></h2>
+<p>Chrome 將下載工作交給電腦端的 Python。</p>
+<ul>
+<li><code>host.json</code>：記錄 Native Host 的名稱、啟動路徑與允許連線的擴充功能。</li>
+<li><code>host.bat</code>：啟動 <code>host.py</code>。</li>
+<li><code>host.py</code>：接收 Chrome 的下載指令，交給 <code>downloader.py</code>。</li>
+<li><code>downloader.py</code>：使用 yt-dlp 下載影片，必要時透過 FFmpeg 合併影音。</li>
+</ul>
+<p><code>host.example.json</code>：提供其他使用者安裝時參考的設定範本。</p>
+<h2 id="6">6. 顯示下載進度與結果<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>影片開始下載，使用者可以在 Popup 查看進度。</p>
+<ul>
+<li><code>downloader.py</code>：產生下載進度、速度與完成結果。</li>
+<li><code>host.py</code>：將這些資訊傳回 Chrome。</li>
+<li><code>background.js</code>：更新下載任務，並儲存紀錄。</li>
+<li><code>popup.js</code>：讀取任務狀態，更新下載清單與進度條。</li>
+</ul>
+<hr />
+<h2 id="_1">完整下載流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">使用者瀏覽網頁
+    ↓
+content.js          偵測影片、顯示下載按鈕
+    ↓
+background.js       建立並管理下載任務
+    ↓
+Native Messaging    Chrome 與 Python 通訊
+    ↓
+host.py             接收下載指令
+    ↓
+downloader.py       呼叫 yt-dlp / FFmpeg
+    ↓
+本機資料夾           儲存影片
 </code></pre>
-<ol>
-<li>輸入 <code>\q</code> 離開 PostgreSQL。</li>
-</ol>
-<h2 id="database_url">修改第二個網站的 DATABASE_URL<a class="headerlink" href="#database_url" title="Permanent link">&para;</a></h2>
-<ol>
-<li>第二個網站 → <code>Environment → DATABASE_URL</code>。</li>
-<li>點眼睛查看網址，把最後的 Database 名稱改成 <code>bamu_production</code>。</li>
-<li>其他部分不變，儲存並重新部署。</li>
-</ol>
-<h2 id="_1">最終架構<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">PostgreSQL（免費伺服器 × 1）
-├── bamu_projects_db_v9fm → Amiibo Store
-└── bamu_production        → Bamu Portfolio
-</code></pre>
+<p>下載進度則沿著相反方向回傳，最後顯示在 Popup 視窗中。</p>
+<h2 id="_2">核心分工<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Chrome Extension</strong>：負責網頁偵測、使用者介面、下載任務管理。</li>
+<li><strong>Python</strong>：負責接收指令、下載影片、回報結果。</li>
+<li><strong>yt-dlp</strong>：負責解析影片來源與下載。</li>
+<li><strong>FFmpeg</strong>：負責影音合併與處理。</li>
+</ul>
 
 
 
