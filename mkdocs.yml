@@ -10,10 +10,6 @@ theme:
   language: zh-TW
   favicon: images/coffee.svg
 
-  plugins:
-    - search
-
-
   font:
     text: Noto Sans TC
     code: JetBrains Mono
@@ -34,6 +30,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 切換淺色模式
+
+plugins:
+  - search
 
 # Markdown 語法擴充
 markdown_extensions:
