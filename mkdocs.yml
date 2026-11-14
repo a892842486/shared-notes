@@ -9,6 +9,7 @@ theme:
   name: material
   language: zh-TW
   favicon: images/coffee.svg
+  logo: images/coffee.svg
 
   font:
     text: Noto Sans TC

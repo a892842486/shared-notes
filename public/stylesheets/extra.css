@@ -118,27 +118,12 @@
 /* 滑鼠移上去：背景變亮，輕微向右移動 */
 .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link:hover {
   background-color: rgb(138 118 96 / 24%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transform: translateX(2px);
 }
 
 /* 深色模式：暖咖啡灰 */
 [data-md-color-scheme="slate"] .md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link:hover {
   background-color: rgb(208 185 154 / 16%);
-}
-
-/* 文件圖示：暖咖啡色 */
-.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link::before {
-  content: "";
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.65rem;
-  flex-shrink: 0;
-  background-color: #C8B49A;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6 2h9l5 5v15H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m8 1.5V8h4.5zM7 12h10v1.5H7zm0 4h10v1.5H7z'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6 2h9l5 5v15H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m8 1.5V8h4.5zM7 12h10v1.5H7zm0 4h10v1.5H7z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 /* 文件圖示：細線條、柔和咖啡米色 */
@@ -185,22 +170,4 @@
   display: none;
 }
 
-/* Navbar Logo：自然的圖示與標題比例 */
-.md-header__button.md-logo {
-  width: 2.2rem;
-  height: 2.2rem;
-  padding: 0;
-  margin-right: -0.6rem;
-
-  background-image: url("../images/coffee.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 1.4rem 1.4rem;
-}
-
-/* 隱藏 Material 原本的 Logo */
-.md-header__button.md-logo img,
-.md-header__button.md-logo svg {
-  visibility: hidden;
-}
 
