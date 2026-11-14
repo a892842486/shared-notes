@@ -12,7 +12,7 @@ MkDocs 是一套使用 Python 開發的靜態網站產生器（Static Site Gener
 
 可以把它想成一位自動排版的編輯助理：
 
-- **Markdown：** 我寫的筆記。
+- **Markdown：** 自己寫的筆記。
 - **MkDocs：** 建置工具，讀取文件與設定，產生靜態網站。
 - **Git：** 版本控制工具，保存原始碼的變更歷史，並透過 `push` 同步到遠端。
 - **GitHub Pages：** 發布服務，讓訪客透過網址瀏覽網站。
@@ -29,19 +29,29 @@ MkDocs 是一套使用 Python 開發的靜態網站產生器（Static Site Gener
 
 ## 三、操作方式
 
-### 1. 本機預覽
+### 1. 環境建置（初次安裝）
+
+安裝 MkDocs 與 Material 主題。
+
+```powershell
+py -m pip install mkdocs-material
+```
+
+### 2. 日常操作（編輯與版本控制）
+
+**本機預覽**：啟動伺服器，修改 Markdown 後自動重新載入。
 
 ```powershell
 py -m mkdocs serve
 ```
 
-### 2. 檢查變更
+**檢查 Git 變更**
 
 ```powershell
 git status
 ```
 
-### 3. 保存原始碼版本
+**保存原始碼版本**
 
 ```powershell
 git add <要提交的檔案或資料夾>
@@ -49,10 +59,21 @@ git commit -m "docs: update shared notes"
 git push
 ```
 
-### 4. 發布網站
+### 3. 網站發布（GitHub Pages）
+
+**本機建置（選用）**：檢查網站能否正常建置，輸出至 `site/`。
+
+```powershell
+py -m mkdocs build
+```
+
+**正式發布**：自動建置並發布至 `gh-pages` 分支。
 
 ```powershell
 py -m mkdocs gh-deploy
 ```
 
-注意：`git add` 的路徑要依照實際修改的檔案調整，若有修改 CSS 或其他設定，也要一併納入。
+> **注意：**
+> - `git add` 依照實際修改的檔案調整，包含 CSS、設定檔等。
+> - `git push`：推送原始碼至 GitHub，不會直接更新正式網站。
+> - `gh-deploy`：發布網站至 GitHub Pages，已包含建置步驟，不必另外執行 `build`。
