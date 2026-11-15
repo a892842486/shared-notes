@@ -6,7 +6,7 @@
 
 ## 重建 PostgreSQL (它是資料庫管理系統)
 
-1. 刪除原本過期的 PostgreSQL（確認資料可透過 Seeds 重建）。
+1. 刪除原本過期的 PostgreSQL（確認不需要保留舊資料，或已備份；若資料可透過 Seeds 重建，需確認 Seeds 可正常執行）。
 2. 建立新的 PostgreSQL（Region 要和 Rails 網站相同）。
 3. 複製 `Internal Database URL`。
 4. 到網站 `Environment → DATABASE_URL`，貼上新網址、儲存並重新部署。
@@ -37,6 +37,7 @@ CREATE DATABASE
 1. 第二個網站 → `Environment → DATABASE_URL`。
 2. 點眼睛查看網址，把最後的 Database 名稱改成 `bamu_production`。
 3. 其他部分不變，儲存並重新部署。
+4. 確認第二個 Rails 網站成功連線並完成 Migration。
 
 ## 最終架構
 
