@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://a892842486.github.io/shared-notes/Tech/programming/video-downloader-03-%E6%8A%80%E8%A1%93%E7%B4%B0%E7%AF%80/">
+        <link rel="canonical" href="https://a892842486.github.io/shared-notes/Tech/programming/Ruby-on-Rails/amiibo-store-04-crud-admin/">
       
       
-        <link rel="prev" href="../video-downloader-02-%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B/">
+        <link rel="prev" href="../amiibo-store-03-user-authentication-devise/">
       
       
-        <link rel="next" href="../../remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/">
+        <link rel="next" href="../amiibo-store-05-order-state-machine/">
       
       
         
       
       
-      <link rel="icon" href="../../../images/coffee.svg">
+      <link rel="icon" href="../../../../images/coffee.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Video downloader 03 技術細節 - Bamu's Notes</title>
+        <title>Amiibo store 04 crud admin - Bamu's Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#video-downloader" class="md-skip">
+        <a href="#macos-ruby-on-rails-crud-admin" class="md-skip">
           跳轉到
         </a>
       
@@ -94,9 +94,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="../../.." title="Bamu&#39;s Notes" class="md-header__button md-logo" aria-label="Bamu's Notes" data-md-component="logo">
+    <a href="../../../.." title="Bamu&#39;s Notes" class="md-header__button md-logo" aria-label="Bamu's Notes" data-md-component="logo">
       
-  <img src="../../../images/coffee.svg" alt="logo">
+  <img src="../../../../images/coffee.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Video downloader 03 技術細節
+              Amiibo store 04 crud admin
             
           </span>
         </div>
@@ -217,9 +217,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Bamu&#39;s Notes" class="md-nav__button md-logo" aria-label="Bamu's Notes" data-md-component="logo">
+    <a href="../../../.." title="Bamu&#39;s Notes" class="md-nav__button md-logo" aria-label="Bamu's Notes" data-md-component="logo">
       
-  <img src="../../../images/coffee.svg" alt="logo">
+  <img src="../../../../images/coffee.svg" alt="logo">
 
     </a>
     Bamu's Notes
@@ -234,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../template/" class="md-nav__link">
+      <a href="../../../../template/" class="md-nav__link">
         
   
   
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/00-linux-desktop-enviroment/" class="md-nav__link">
+      <a href="../../../linux/00-linux-desktop-enviroment/" class="md-nav__link">
         
   
   
@@ -412,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/01-linux-distributions/" class="md-nav__link">
+      <a href="../../../linux/01-linux-distributions/" class="md-nav__link">
         
   
   
@@ -440,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/02-linux-window-managers/" class="md-nav__link">
+      <a href="../../../linux/02-linux-window-managers/" class="md-nav__link">
         
   
   
@@ -468,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/03-linux-desktop-rice/" class="md-nav__link">
+      <a href="../../../linux/03-linux-desktop-rice/" class="md-nav__link">
         
   
   
@@ -496,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/04-linux-applications/" class="md-nav__link">
+      <a href="../../../linux/04-linux-applications/" class="md-nav__link">
         
   
   
@@ -524,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/05-linux-gaming/" class="md-nav__link">
+      <a href="../../../linux/05-linux-gaming/" class="md-nav__link">
         
   
   
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/raspberry-pi-%E6%A8%B9%E8%8E%93%E6%B4%BE%E5%85%A5%E9%96%80%E7%AD%86%E8%A8%98/" class="md-nav__link">
+      <a href="../../../linux/raspberry-pi-%E6%A8%B9%E8%8E%93%E6%B4%BE%E5%85%A5%E9%96%80%E7%AD%86%E8%A8%98/" class="md-nav__link">
         
   
   
@@ -580,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux/%E5%AE%89%E8%A3%9D%20linux%20%E9%9B%99%E7%B3%BB%E7%B5%B1/" class="md-nav__link">
+      <a href="../../../linux/%E5%AE%89%E8%A3%9D%20linux%20%E9%9B%99%E7%B3%BB%E7%B5%B1/" class="md-nav__link">
         
   
   
@@ -665,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../render-%E5%85%8D%E8%B2%BB%20PostgreSQL%2030%20%E5%A4%A9%E5%88%B0%E6%9C%9F%EF%BC%8C%E9%87%8D%E5%BB%BA%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../../render-%E5%85%8D%E8%B2%BB%20PostgreSQL%2030%20%E5%A4%A9%E5%88%B0%E6%9C%9F%EF%BC%8C%E9%87%8D%E5%BB%BA%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -692,8 +692,55 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../video-downloader-01-%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
+      <a href="../../Python/video-downloader-01-%E4%BB%8B%E7%B4%B9/" class="md-nav__link">
         
   
   
@@ -721,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../video-downloader-02-%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B/" class="md-nav__link">
+      <a href="../../Python/video-downloader-02-%E9%81%8B%E4%BD%9C%E6%B5%81%E7%A8%8B/" class="md-nav__link">
         
   
   
@@ -729,6 +776,175 @@
     
   
     Video downloader 02 運作流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/video-downloader-03-%E6%8A%80%E8%A1%93%E7%B4%B0%E7%AF%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Video downloader 03 技術細節
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ruby on Rails
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ruby on Rails
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amiibo-store-01-dev-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiibo store 01 dev environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amiibo-store-02-project-initialization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiibo store 02 project initialization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amiibo-store-03-user-authentication-devise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiibo store 03 user authentication devise
   
 
     
@@ -765,7 +981,7 @@
   <span class="md-ellipsis">
     
   
-    Video downloader 03 技術細節
+    Amiibo store 04 crud admin
   
 
     
@@ -783,7 +999,7 @@
   <span class="md-ellipsis">
     
   
-    Video downloader 03 技術細節
+    Amiibo store 04 crud admin
   
 
     
@@ -809,22 +1025,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manifestjsonchrome-extension" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        manifest.json｜Chrome Extension 設定入口
+        目的
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="manifest.json｜Chrome Extension 設定入口">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 建立 Git 分支
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-controller-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 建立 Controller 與 Routes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-product-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 建立 Product Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-controller-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 實作 Controller CRUD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 實作 Controller CRUD">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#crud-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心架構
+        CRUD Actions 對照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong Parameters
       
     </span>
   </a>
@@ -835,7 +1106,35 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料流程
+        表單驗證失敗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 建立 Views
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 建立 Views">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        共用表單 Partial
       
     </span>
   </a>
@@ -846,46 +1145,85 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        互動關係
+        新增商品
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backgroundjs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        background.js｜背景事件與下載任務管理
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="background.js｜背景事件與下載任務管理">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心架構
+        編輯商品
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 商品列表與刪除功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 商品列表與刪除功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#button_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        為什麼刪除使用 button_to？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 功能驗證
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Workflow">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料流程
+        開發內容
       
     </span>
   </a>
@@ -893,38 +1231,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        互動關係
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contentjs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        content.js｜網頁影片偵測與下載按鈕
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="content.js｜網頁影片偵測與下載按鈕">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
+        Branch
       
     </span>
   </a>
@@ -932,226 +1242,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#commit-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        互動關係
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contentcss" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        content.css｜網頁下載按鈕樣式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popuphtml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup.html｜擴充功能視窗結構
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popupcss" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup.css｜擴充功能視窗樣式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popupjs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup.js｜擴充功能視窗互動
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="popup.js｜擴充功能視窗互動">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        互動關係
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hostexamplejson-hostjsonnative-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        host.example.json / host.json｜Native Host 設定
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hostbatpython" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        host.bat｜Python 啟動腳本
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hostpynative-messaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        host.py｜Native Messaging 通訊入口
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="host.py｜Native Messaging 通訊入口">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        重要觀念
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#downloaderpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        downloader.py｜影片下載核心
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="downloader.py｜影片下載核心">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        重要觀念
+        Commit History
       
     </span>
   </a>
@@ -1166,6 +1260,182 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amiibo-store-05-order-state-machine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiibo store 05 order state machine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amiibo-store-06-order-state-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiibo store 06 order state admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amiibo-store-07-rails-deployment-on-render/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amiibo store 07 rails deployment on render
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bamu-portfolio-01-model-associations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bamu portfolio 01 model associations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bamu-portfolio-02-i18n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bamu portfolio 02 i18n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bamu-portfolio-03-stimulus-drag-sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bamu portfolio 03 stimulus drag sort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1234,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+      <a href="../../../remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/" class="md-nav__link">
         
   
   
@@ -1262,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../remote-access/01-sunshine-moonlight/" class="md-nav__link">
+      <a href="../../../remote-access/01-sunshine-moonlight/" class="md-nav__link">
         
   
   
@@ -1290,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../remote-access/02-moonlight-%E6%B5%81%E9%87%8F%E8%A8%AD%E5%AE%9A%E8%A3%9C%E5%85%85/" class="md-nav__link">
+      <a href="../../../remote-access/02-moonlight-%E6%B5%81%E9%87%8F%E8%A8%AD%E5%AE%9A%E8%A3%9C%E5%85%85/" class="md-nav__link">
         
   
   
@@ -1318,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../remote-access/NAS/" class="md-nav__link">
+      <a href="../../../remote-access/NAS/" class="md-nav__link">
         
   
   
@@ -1346,7 +1616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../remote-access/%E8%99%9B%E6%93%AC%E8%9E%A2%E5%B9%95/" class="md-nav__link">
+      <a href="../../../remote-access/%E8%99%9B%E6%93%AC%E8%9E%A2%E5%B9%95/" class="md-nav__link">
         
   
   
@@ -1483,7 +1753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../game/FF14/%E4%BB%A3%E8%BE%A6/" class="md-nav__link">
+      <a href="../../../../game/FF14/%E4%BB%A3%E8%BE%A6/" class="md-nav__link">
         
   
   
@@ -1511,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../game/FF14/%E5%89%AF%E8%81%B7%E6%A5%AD%20%E7%B7%B4%E7%AD%89/" class="md-nav__link">
+      <a href="../../../../game/FF14/%E5%89%AF%E8%81%B7%E6%A5%AD%20%E7%B7%B4%E7%AD%89/" class="md-nav__link">
         
   
   
@@ -1539,7 +1809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../game/FF14/%E9%A3%9F%E7%89%A9/" class="md-nav__link">
+      <a href="../../../../game/FF14/%E9%A3%9F%E7%89%A9/" class="md-nav__link">
         
   
   
@@ -1622,7 +1892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../game/Guild-Wars-2/arcdps-%E4%BF%AE%E6%94%B9%E5%84%B2%E5%AD%98%E4%BD%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../../../../game/Guild-Wars-2/arcdps-%E4%BF%AE%E6%94%B9%E5%84%B2%E5%AD%98%E4%BD%8D%E7%BD%AE/" class="md-nav__link">
         
   
   
@@ -1759,7 +2029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/health/%E5%B1%85%E5%AE%B6%E9%87%8D%E8%A8%93AB%E6%97%A5/" class="md-nav__link">
+      <a href="../../../../life/health/%E5%B1%85%E5%AE%B6%E9%87%8D%E8%A8%93AB%E6%97%A5/" class="md-nav__link">
         
   
   
@@ -1787,7 +2057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/health/%E8%9B%8B%E7%99%BD%E7%B2%89%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/" class="md-nav__link">
+      <a href="../../../../life/health/%E8%9B%8B%E7%99%BD%E7%B2%89%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/" class="md-nav__link">
         
   
   
@@ -1815,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/health/%E8%9B%8B%E7%99%BD%E9%A1%9E%E9%A3%9F%E5%93%81%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/" class="md-nav__link">
+      <a href="../../../../life/health/%E8%9B%8B%E7%99%BD%E9%A1%9E%E9%A3%9F%E5%93%81%E5%83%B9%E6%A0%BC%E6%AF%94%E8%BC%83/" class="md-nav__link">
         
   
   
@@ -1898,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/00-apple-ecosystem/" class="md-nav__link">
+      <a href="../../../../life/shopping/00-apple-ecosystem/" class="md-nav__link">
         
   
   
@@ -1926,7 +2196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/01-apple-devices/" class="md-nav__link">
+      <a href="../../../../life/shopping/01-apple-devices/" class="md-nav__link">
         
   
   
@@ -1954,7 +2224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/02-apple-watch/" class="md-nav__link">
+      <a href="../../../../life/shopping/02-apple-watch/" class="md-nav__link">
         
   
   
@@ -1982,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/03-air-pod/" class="md-nav__link">
+      <a href="../../../../life/shopping/03-air-pod/" class="md-nav__link">
         
   
   
@@ -2010,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/Mac%E8%A8%88%E7%AE%97%E6%A9%9F%E6%AF%94%E8%BC%83/" class="md-nav__link">
+      <a href="../../../../life/shopping/Mac%E8%A8%88%E7%AE%97%E6%A9%9F%E6%AF%94%E8%BC%83/" class="md-nav__link">
         
   
   
@@ -2038,7 +2308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/%E6%95%B8%E4%BD%8D%E9%8B%BC%E7%90%B4%E9%81%B8%E6%93%87-01/" class="md-nav__link">
+      <a href="../../../../life/shopping/%E6%95%B8%E4%BD%8D%E9%8B%BC%E7%90%B4%E9%81%B8%E6%93%87-01/" class="md-nav__link">
         
   
   
@@ -2066,7 +2336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/%E6%95%B8%E4%BD%8D%E9%8B%BC%E7%90%B4%E9%81%B8%E6%93%87-02/" class="md-nav__link">
+      <a href="../../../../life/shopping/%E6%95%B8%E4%BD%8D%E9%8B%BC%E7%90%B4%E9%81%B8%E6%93%87-02/" class="md-nav__link">
         
   
   
@@ -2094,7 +2364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/%E7%AD%86%E9%9B%BB%E7%AB%8B%E6%9E%B6%E6%80%9D%E8%80%83/" class="md-nav__link">
+      <a href="../../../../life/shopping/%E7%AD%86%E9%9B%BB%E7%AB%8B%E6%9E%B6%E6%80%9D%E8%80%83/" class="md-nav__link">
         
   
   
@@ -2122,7 +2392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/%E8%A1%8C%E5%8B%95%E9%85%8D%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../../life/shopping/%E8%A1%8C%E5%8B%95%E9%85%8D%E4%BB%B6/" class="md-nav__link">
         
   
   
@@ -2150,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../life/shopping/%E9%8D%B5%E7%9B%A4-%E6%BB%91%E9%BC%A0-%E6%89%8B%E6%8A%8A/" class="md-nav__link">
+      <a href="../../../../life/shopping/%E9%8D%B5%E7%9B%A4-%E6%BB%91%E9%BC%A0-%E6%89%8B%E6%8A%8A/" class="md-nav__link">
         
   
   
@@ -2240,7 +2510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/MkDocs/" class="md-nav__link">
+      <a href="../../../../productivity/MkDocs/" class="md-nav__link">
         
   
   
@@ -2268,7 +2538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/Windows%20%E6%89%B9%E6%AC%A1%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D/" class="md-nav__link">
+      <a href="../../../../productivity/Windows%20%E6%89%B9%E6%AC%A1%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D/" class="md-nav__link">
         
   
   
@@ -2296,7 +2566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/%E5%94%90%E9%B3%B3%E7%9A%84%E7%95%AA%E8%8C%84%E9%90%98%E5%B7%A5%E4%BD%9C%E6%B3%95/" class="md-nav__link">
+      <a href="../../../../productivity/%E5%94%90%E9%B3%B3%E7%9A%84%E7%95%AA%E8%8C%84%E9%90%98%E5%B7%A5%E4%BD%9C%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2324,7 +2594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/%E5%9D%90%E5%A7%BF/" class="md-nav__link">
+      <a href="../../../../productivity/%E5%9D%90%E5%A7%BF/" class="md-nav__link">
         
   
   
@@ -2399,7 +2669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/git-branch-workflow/" class="md-nav__link">
+      <a href="../../../../productivity/work/git-branch-workflow/" class="md-nav__link">
         
   
   
@@ -2474,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/00-game-job/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/00-game-job/" class="md-nav__link">
         
   
   
@@ -2502,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/00-web-job/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/00-web-job/" class="md-nav__link">
         
   
   
@@ -2530,7 +2800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/00-%E8%A3%9C%E5%85%85%E9%A1%9E%E4%BB%A3%E8%BE%A6/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/00-%E8%A3%9C%E5%85%85%E9%A1%9E%E4%BB%A3%E8%BE%A6/" class="md-nav__link">
         
   
   
@@ -2558,7 +2828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-C%23/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-C%23/" class="md-nav__link">
         
   
   
@@ -2586,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-c%2B%2B/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-c%2B%2B/" class="md-nav__link">
         
   
   
@@ -2614,7 +2884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-c-family/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-c-family/" class="md-nav__link">
         
   
   
@@ -2642,7 +2912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-c/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-c/" class="md-nav__link">
         
   
   
@@ -2670,7 +2940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-cloud-devops/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-cloud-devops/" class="md-nav__link">
         
   
   
@@ -2698,7 +2968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-go/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-go/" class="md-nav__link">
         
   
   
@@ -2726,7 +2996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-java/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-java/" class="md-nav__link">
         
   
   
@@ -2754,7 +3024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-js-ts/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-js-ts/" class="md-nav__link">
         
   
   
@@ -2782,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-python/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-python/" class="md-nav__link">
         
   
   
@@ -2810,7 +3080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/software-map/01-ruby-on-rails/" class="md-nav__link">
+      <a href="../../../../productivity/work/software-map/01-ruby-on-rails/" class="md-nav__link">
         
   
   
@@ -2893,7 +3163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/" class="md-nav__link">
         
   
   
@@ -2921,7 +3191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/2026-05/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/2026-05/" class="md-nav__link">
         
   
   
@@ -2949,7 +3219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/2026-06/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/2026-06/" class="md-nav__link">
         
   
   
@@ -2977,7 +3247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/2026-07/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/2026-07/" class="md-nav__link">
         
   
   
@@ -3005,7 +3275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/2026-08/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/2026-08/" class="md-nav__link">
         
   
   
@@ -3033,7 +3303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/2026-09/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/2026-09/" class="md-nav__link">
         
   
   
@@ -3061,7 +3331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../productivity/work/work-log/2026-10/" class="md-nav__link">
+      <a href="../../../../productivity/work/work-log/2026-10/" class="md-nav__link">
         
   
   
@@ -3132,22 +3402,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manifestjsonchrome-extension" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        manifest.json｜Chrome Extension 設定入口
+        目的
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="manifest.json｜Chrome Extension 設定入口">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 建立 Git 分支
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-controller-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 建立 Controller 與 Routes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-product-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 建立 Product Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-controller-crud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 實作 Controller CRUD
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 實作 Controller CRUD">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#crud-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心架構
+        CRUD Actions 對照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong Parameters
       
     </span>
   </a>
@@ -3158,7 +3483,35 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料流程
+        表單驗證失敗
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 建立 Views
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 建立 Views">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        共用表單 Partial
       
     </span>
   </a>
@@ -3169,46 +3522,85 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        互動關係
+        新增商品
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backgroundjs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        background.js｜背景事件與下載任務管理
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="background.js｜背景事件與下載任務管理">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心架構
+        編輯商品
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 商品列表與刪除功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 商品列表與刪除功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#button_to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        為什麼刪除使用 button_to？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 功能驗證
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Workflow">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料流程
+        開發內容
       
     </span>
   </a>
@@ -3216,38 +3608,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#branch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        互動關係
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contentjs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        content.js｜網頁影片偵測與下載按鈕
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="content.js｜網頁影片偵測與下載按鈕">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
+        Branch
       
     </span>
   </a>
@@ -3255,226 +3619,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#commit-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        互動關係
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contentcss" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        content.css｜網頁下載按鈕樣式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popuphtml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup.html｜擴充功能視窗結構
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popupcss" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup.css｜擴充功能視窗樣式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#popupjs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup.js｜擴充功能視窗互動
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="popup.js｜擴充功能視窗互動">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        互動關係
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hostexamplejson-hostjsonnative-host" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        host.example.json / host.json｜Native Host 設定
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hostbatpython" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        host.bat｜Python 啟動腳本
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hostpynative-messaging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        host.py｜Native Messaging 通訊入口
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="host.py｜Native Messaging 通訊入口">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        重要觀念
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#downloaderpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        downloader.py｜影片下載核心
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="downloader.py｜影片下載核心">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心架構
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        資料流程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        重要觀念
+        Commit History
       
     </span>
   </a>
@@ -3503,330 +3651,304 @@
 
 
 
-<p>2026-11-12 Created</p>
+<p>2026 01 21 Created<br />
+2026 11 15 Moved from peko-discord</p>
 <hr />
-<h1 id="video-downloader">Video Downloader 檔案詳解<a class="headerlink" href="#video-downloader" title="Permanent link">&para;</a></h1>
-<h2 id="manifestjsonchrome-extension">manifest.json｜Chrome Extension 設定入口<a class="headerlink" href="#manifestjsonchrome-extension" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 定義擴充功能的基本資訊、權限與程式載入方式。</p>
-<h3 id="_1">核心架構<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>基本設定</strong></p>
+<h1 id="macos-ruby-on-rails-crud-admin">macOS Ruby on Rails CRUD-admin<a class="headerlink" href="#macos-ruby-on-rails-crud-admin" title="Permanent link">&para;</a></h1>
+<h2 id="_1">目的<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>使用 Rails MVC 架構建立後台商品管理功能，完成商品的新增、瀏覽、編輯、刪除（CRUD）。</p>
+<p>本篇重點：</p>
 <ul>
-<li><code>manifest_version: 3</code>：使用 Chrome Manifest V3。</li>
-<li><code>action</code>：點擊圖示時，開啟 <code>popup/popup.html</code>。</li>
+<li>RESTful Routes 與 Namespace</li>
+<li>Active Record 資料庫操作</li>
+<li>Controller CRUD Actions</li>
+<li>Strong Parameters</li>
+<li>共用 <code>_form</code> Partial</li>
+<li>Turbo 刪除確認</li>
 </ul>
-</li>
-<li>
-<p><strong>權限管理</strong></p>
+<h2 id="1-git">1. 建立 Git 分支<a class="headerlink" href="#1-git" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">git checkout -b feat/admin-products
+</code></pre>
+<h2 id="2-controller-routes">2. 建立 Controller 與 Routes<a class="headerlink" href="#2-controller-routes" title="Permanent link">&para;</a></h2>
+<p>建立後台 Controller：</p>
+<pre><code class="language-bash">bin/rails generate controller admin/products
+</code></pre>
+<p><code>config/routes.rb</code></p>
+<pre><code class="language-ruby">Rails.application.routes.draw do
+  namespace :admin do
+    resources :products
+  end
+end
+</code></pre>
+<p><code>namespace :admin</code> 會產生 <code>/admin/products</code> 等後台路由，並對應 <code>Admin::ProductsController</code>。</p>
+<p>查看路由：</p>
+<pre><code class="language-bash">bin/rails routes -g admin
+</code></pre>
+<h2 id="3-product-model">3. 建立 Product Model<a class="headerlink" href="#3-product-model" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">bin/rails generate model Product title:string description:text quantity:integer price:integer
+bin/rails db:migrate
+</code></pre>
+<p>資料欄位：</p>
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>型別</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>string</td>
+<td>商品名稱</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>商品描述</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td>integer</td>
+<td>商品庫存</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>integer</td>
+<td>商品價格</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-bash">git add .
+git commit -m &quot;feat(admin/products): set up admin product resource&quot;
+</code></pre>
+<h2 id="4-controller-crud">4. 實作 Controller CRUD<a class="headerlink" href="#4-controller-crud" title="Permanent link">&para;</a></h2>
+<p><code>app/controllers/admin/products_controller.rb</code></p>
+<pre><code class="language-ruby">class Admin::ProductsController &lt; ApplicationController
+  def index
+    @products = Product.order(created_at: :desc)
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to admin_products_path, notice: &quot;Product created&quot;
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.update(product_params)
+      redirect_to admin_products_path, notice: &quot;Product updated&quot;
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+
+    redirect_to admin_products_path, notice: &quot;Product deleted&quot;
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(
+      :title,
+      :description,
+      :quantity,
+      :price
+    )
+  end
+end
+</code></pre>
+<h3 id="crud-actions">CRUD Actions 對照<a class="headerlink" href="#crud-actions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>HTTP Method</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index</code></td>
+<td>GET</td>
+<td>顯示商品列表</td>
+</tr>
+<tr>
+<td><code>new</code></td>
+<td>GET</td>
+<td>顯示新增表單</td>
+</tr>
+<tr>
+<td><code>create</code></td>
+<td>POST</td>
+<td>建立商品</td>
+</tr>
+<tr>
+<td><code>edit</code></td>
+<td>GET</td>
+<td>顯示編輯表單</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>PATCH / PUT</td>
+<td>更新商品</td>
+</tr>
+<tr>
+<td><code>destroy</code></td>
+<td>DELETE</td>
+<td>刪除商品</td>
+</tr>
+</tbody>
+</table>
+<h3 id="strong-parameters">Strong Parameters<a class="headerlink" href="#strong-parameters" title="Permanent link">&para;</a></h3>
+<pre><code class="language-ruby">def product_params
+  params.require(:product).permit(
+    :title, :description, :quantity, :price
+  )
+end
+</code></pre>
+<p>只允許指定欄位透過表單進行批次賦值，避免使用者任意修改其他 Model 屬性。</p>
+<h3 id="_2">表單驗證失敗<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<pre><code class="language-ruby">render :new, status: :unprocessable_entity
+</code></pre>
+<p>當資料儲存失敗時，重新顯示表單並回傳 HTTP <code>422</code>，讓 Rails / Turbo 正確處理失敗回應。</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;feat(admin/products): implement product management flow&quot;
+</code></pre>
+<h2 id="5-views">5. 建立 Views<a class="headerlink" href="#5-views" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">app/views/admin/products/
+├── index.html.erb    # 商品列表
+├── new.html.erb      # 新增商品
+├── edit.html.erb     # 編輯商品
+└── _form.html.erb    # 共用表單
+</code></pre>
+<h3 id="partial">共用表單 Partial<a class="headerlink" href="#partial" title="Permanent link">&para;</a></h3>
+<p><code>app/views/admin/products/_form.html.erb</code></p>
+<p>使用 <code>form_with</code> 自動判斷商品是新增還是編輯，避免重複維護兩份表單。</p>
+<pre><code class="language-erb">&lt;h2&gt;
+  &lt;%= product.new_record? ? &quot;New Product&quot; : &quot;Edit Product&quot; %&gt;
+&lt;/h2&gt;
+
+&lt;%= form_with model: [:admin, product] do |f| %&gt;
+  &lt;div&gt;
+    &lt;%= f.label :title %&gt;
+    &lt;%= f.text_field :title %&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;%= f.label :description %&gt;
+    &lt;%= f.text_area :description, rows: 4 %&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;%= f.label :quantity %&gt;
+    &lt;%= f.number_field :quantity %&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;%= f.label :price %&gt;
+    &lt;%= f.number_field :price %&gt;
+  &lt;/div&gt;
+
+  &lt;%= f.submit product.new_record? ? &quot;Create Product&quot; : &quot;Update Product&quot; %&gt;
+&lt;% end %&gt;
+</code></pre>
+<p><code>model: [:admin, product]</code> 會根據 Model 狀態，自動選擇對應的後台路由與 HTTP Method。</p>
+<h3 id="_3">新增商品<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><code>app/views/admin/products/new.html.erb</code></p>
+<pre><code class="language-erb">&lt;%= render &quot;form&quot;, product: @product %&gt;
+</code></pre>
+<h3 id="_4">編輯商品<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><code>app/views/admin/products/edit.html.erb</code></p>
+<pre><code class="language-erb">&lt;%= render &quot;form&quot;, product: @product %&gt;
+</code></pre>
+<p>兩個頁面共用 <code>_form.html.erb</code>，修改表單時只需要維護一個檔案。</p>
+<h2 id="6">6. 商品列表與刪除功能<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p><code>app/views/admin/products/index.html.erb</code></p>
+<pre><code class="language-erb">&lt;h1&gt;商品管理&lt;/h1&gt;
+
+&lt;%= link_to &quot;新增商品&quot;, new_admin_product_path %&gt;
+
+&lt;% @products.each do |product| %&gt;
+  &lt;div&gt;
+    &lt;h2&gt;&lt;%= product.title %&gt;&lt;/h2&gt;
+    &lt;p&gt;&lt;%= product.price %&gt; 元&lt;/p&gt;
+
+    &lt;%= link_to &quot;編輯&quot;, edit_admin_product_path(product) %&gt;
+
+    &lt;%= button_to &quot;刪除&quot;,
+        admin_product_path(product),
+        method: :delete,
+        data: { turbo_confirm: &quot;確定要刪除這個商品嗎？&quot; } %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;
+</code></pre>
+<h3 id="button_to">為什麼刪除使用 <code>button_to</code>？<a class="headerlink" href="#button_to" title="Permanent link">&para;</a></h3>
+<p><code>button_to</code> 會產生 HTML Form，可以直接送出 <code>DELETE</code> 請求。</p>
+<p>搭配：</p>
+<pre><code class="language-ruby">method: :delete,
+data: { turbo_confirm: &quot;確定要刪除這個商品嗎？&quot; }
+</code></pre>
+<p>讓使用者刪除前先確認，避免誤操作。</p>
+<pre><code class="language-bash">git add .
+git commit -m &quot;feat(ui): enhance admin product management interface&quot;
+</code></pre>
+<h2 id="7">7. 功能驗證<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>啟動 Rails：</p>
+<pre><code class="language-bash">bin/dev
+</code></pre>
+<p>開啟 <code>/admin/products</code>，依序測試：</p>
 <ul>
-<li><code>permissions</code>：允許使用分頁、儲存、網路監聽及 Native Messaging 等 Chrome API。</li>
-<li><code>host_permissions</code>：允許存取 HTTP、HTTPS 網站。</li>
+<li>商品列表：可以顯示所有商品。</li>
+<li>新增商品：成功建立資料。</li>
+<li>編輯商品：可以修改既有資料。</li>
+<li>刪除商品：顯示確認視窗並成功刪除。</li>
+<li>表單驗證失敗：若 Model 有設定 Validation，確認能重新顯示表單。</li>
 </ul>
-</li>
-<li>
-<p><strong>程式載入</strong></p>
+<blockquote>
+<p>本篇尚未實作後台權限限制，<code>namespace :admin</code> 只負責路由與 Controller 分類，不會自動阻止一般使用者進入後台。</p>
+</blockquote>
+<hr />
+<h2 id="git-workflow">Git Workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h2>
+<p><strong>Feature：</strong> Admin Product Management</p>
+<p><strong>目標：</strong> 建立後台商品 CRUD，完成 Model、Controller、Views 與 Routes。</p>
+<h3 id="_5">開發內容<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>content_scripts</code>：將 <code>content.js</code>、<code>content.css</code> 注入網頁。</li>
-<li><code>background.service_worker</code>：指定 <code>background.js</code> 處理背景事件。</li>
+<li>建立 Product Model 與資料表</li>
+<li>建立 Admin Namespace 與 Routes</li>
+<li>實作 CRUD Actions</li>
+<li>使用 Strong Parameters</li>
+<li>共用 <code>_form</code> Partial</li>
+<li>使用 HTTP 422 處理表單失敗回應</li>
+<li>使用 Turbo Confirm 處理刪除確認</li>
+<li>使用 Tailwind CSS 客製化後台介面</li>
 </ul>
-</li>
-</ol>
-<h3 id="_2">資料流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><code>Chrome 載入擴充功能</code> → <code>讀取 manifest.json</code> → <code>載入背景程式、網頁腳本與 Popup 設定</code></p>
-<h3 id="_3">互動關係<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>background.js</code>：指定為背景 Service Worker。</li>
-<li><code>content.js / content.css</code>：指定注入網頁的程式與樣式。</li>
-<li><code>popup.html</code>：指定點擊擴充功能圖示後開啟的視窗。</li>
-</ul>
-<h2 id="backgroundjs">background.js｜背景事件與下載任務管理<a class="headerlink" href="#backgroundjs" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 負責偵測影片串流來源、管理下載任務，以及 Chrome 與 Python 之間的通訊。</p>
-<h3 id="_4">核心架構<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>影片偵測</strong></p>
-<ul>
-<li><code>chrome.webRequest</code>：監聽網路請求，偵測 HLS（<code>.m3u8</code>）影片來源。</li>
-<li><code>hlsSources</code>：依分頁記錄影片網址，切換或關閉分頁時清除。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載任務管理</strong></p>
-<ul>
-<li><code>tasks</code>：管理下載任務、進度與狀態。</li>
-<li><code>chrome.storage.local</code>：保存下載紀錄，背景程式重啟後可恢復。</li>
-<li><code>saveQueue</code>：依序儲存，避免非同步寫入衝突。</li>
-</ul>
-</li>
-<li>
-<p><strong>Native Messaging</strong></p>
-<ul>
-<li><code>connectDownload()</code>：每個任務建立獨立連線，將下載指令傳給 Python。</li>
-<li><code>port.onMessage</code>：接收下載進度、完成或錯誤等事件。</li>
-<li><code>port.onDisconnect</code>：處理連線中斷，更新任務狀態。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載控制</strong></p>
-<ul>
-<li><code>startDownload()</code>：檢查網址與重複任務，準備 HLS 備援來源，建立並啟動下載。</li>
-<li><code>cancelDownload()</code>：更新取消狀態、中斷連線並保存紀錄。</li>
-</ul>
-</li>
-<li>
-<p><strong>Chrome 訊息入口</strong></p>
-<ul>
-<li><code>chrome.runtime.onMessage</code>：接收其他擴充功能程式的指令。</li>
-<li>支援 <code>download</code>、<code>getDownloadTasks</code>、<code>cancelDownload</code>。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_5">資料流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><strong>下載指令：</strong></p>
-<p><code>content.js</code> → <code>background.js</code> → <code>Native Messaging</code> → <code>host.py</code> → <code>downloader.py</code></p>
-<p><strong>下載進度：</strong></p>
-<p><code>downloader.py</code> → <code>host.py</code> → <code>background.js</code> → <code>Chrome Storage</code> → <code>popup.js</code></p>
-<h3 id="_6">互動關係<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>manifest.json</code>：指定 <code>background.js</code> 為背景 Service Worker。</li>
-<li><code>content.js</code>：接收網頁下載按鈕發送的下載請求。</li>
-<li><code>popup.js</code>：提供下載任務資料，接收取消下載指令。</li>
-<li><code>chrome.storage.local</code>：保存下載任務與狀態，供 Popup 讀取。</li>
-<li><code>host.py</code>：<code>background.js</code> 透過 Native Messaging 向它傳送下載指令，並接收回傳的進度與結果。</li>
-</ul>
-<h2 id="contentjs">content.js｜網頁影片偵測與下載按鈕<a class="headerlink" href="#contentjs" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 偵測網頁中的影片播放器、顯示下載按鈕，並將下載請求交給 <code>background.js</code>。</p>
-<h3 id="_7">核心架構<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>影片偵測</strong></p>
-<ul>
-<li><code>detectVideos()</code>：尋找網頁中的 <code>&lt;video&gt;</code> 元素。</li>
-<li><code>MutationObserver</code>：監聽網頁內容變化，偵測動態載入的影片。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載按鈕管理</strong></p>
-<ul>
-<li><code>addDownloadButton()</code>：為影片建立下載按鈕，避免重複建立。</li>
-<li><code>updateButtonPosition()</code>：依照影片位置調整按鈕，影片不在畫面內時隱藏。</li>
-<li><code>updateAllButtons()</code>：更新按鈕位置，並清除已移除影片的按鈕。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載請求</strong></p>
-<ul>
-<li><code>chrome.runtime.sendMessage()</code>：將網頁網址、標題與下載路徑傳給 <code>background.js</code>。</li>
-<li><code>background.js</code>：統一管理下載任務。</li>
-</ul>
-</li>
-<li>
-<p><strong>設定同步</strong></p>
-<ul>
-<li><code>chrome.storage.local</code>：讀取下載路徑與按鈕顯示設定。</li>
-<li><code>chrome.storage.onChanged</code>：同步 Popup 修改的按鈕開關。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_8">資料流程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p><code>網頁 &lt;video&gt;</code> → <code>content.js 偵測</code> → <code>顯示下載按鈕</code> → <code>使用者點擊</code> → <code>background.js</code></p>
-<h3 id="_9">互動關係<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>manifest.json</code>：指定將 <code>content.js</code> 注入網頁。</li>
-<li><code>content.css</code>：負責下載按鈕的外觀。</li>
-<li><code>popup.js</code>：透過 Chrome Storage 共用下載路徑與按鈕開關設定。</li>
-<li><code>background.js</code>：接收下載請求，負責後續任務管理與 Python 通訊。</li>
-</ul>
-<h2 id="contentcss">content.css｜網頁下載按鈕樣式<a class="headerlink" href="#contentcss" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 設定網頁中「⬇ 下載」按鈕的外觀。</p>
-<ul>
-<li>設定按鈕顏色、大小、陰影與滑鼠懸停效果。</li>
-<li>使用 <code>position: fixed</code>，讓按鈕能依照影片位置顯示。</li>
-<li>使用高 <code>z-index</code>，避免被網頁其他元素遮擋。</li>
-</ul>
-<p><strong>互動關係：</strong></p>
-<ul>
-<li><code>content.js</code>：負責建立按鈕、控制位置與顯示狀態。</li>
-<li><code>content.css</code>：負責按鈕的視覺樣式。</li>
-</ul>
-<h2 id="popuphtml">popup.html｜擴充功能視窗結構<a class="headerlink" href="#popuphtml" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 定義點擊 Chrome 擴充功能圖示後顯示的操作介面。</p>
-<ul>
-<li><strong>下載按鈕開關</strong>：控制網頁中是否顯示下載按鈕。</li>
-<li><strong>下載位置</strong>：讓使用者設定影片儲存路徑。</li>
-<li><strong>下載清單</strong>：顯示下載任務、數量與狀態。</li>
-<li><strong>狀態訊息</strong>：顯示操作提示。</li>
-</ul>
-<p><strong>互動關係：</strong></p>
-<ul>
-<li><code>manifest.json</code>：指定開啟 <code>popup.html</code>。</li>
-<li><code>popup.css</code>：負責視窗外觀。</li>
-<li><code>popup.js</code>：負責介面操作、設定與下載任務顯示。</li>
-</ul>
-<h2 id="popupcss">popup.css｜擴充功能視窗樣式<a class="headerlink" href="#popupcss" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 設定 Popup 視窗的外觀與排版，採用深色主題。</p>
-<ul>
-<li><strong>基本樣式</strong>：視窗大小、背景、文字、輸入框與按鈕。</li>
-<li><strong>設定開關</strong>：下載按鈕的切換動畫與顏色。</li>
-<li><strong>下載清單</strong>：任務卡片、進度條、下載狀態與取消按鈕。</li>
-<li><strong>狀態顏色</strong>：區分下載完成、失敗、跳過與取消等狀態。</li>
-</ul>
-<p><strong>互動關係：</strong></p>
-<ul>
-<li><code>popup.html</code>：提供介面結構。</li>
-<li><code>popup.js</code>：控制介面內容與狀態。</li>
-<li><code>popup.css</code>：負責視覺樣式。</li>
-</ul>
-<h2 id="popupjs">popup.js｜擴充功能視窗互動<a class="headerlink" href="#popupjs" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 管理 Popup 操作介面、使用者設定與下載任務顯示。</p>
-<h3 id="_10">核心架構<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>使用者設定</strong></p>
-<ul>
-<li><code>loadSettings()</code>：讀取下載路徑與下載按鈕開關。</li>
-<li><code>chrome.storage.local</code>：儲存設定，並同步給 <code>content.js</code>。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載任務顯示</strong></p>
-<ul>
-<li><code>renderTask()</code>：建立任務卡片，顯示進度、速度、剩餘時間與狀態。</li>
-<li><code>renderTasks()</code>：更新下載清單，依建立時間排序。</li>
-<li><code>chrome.storage.onChanged</code>：監聽任務變化，即時更新畫面。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載控制</strong></p>
-<ul>
-<li><code>chrome.runtime.sendMessage()</code>：向 <code>background.js</code> 查詢任務或發送取消下載指令。</li>
-<li><code>loadDownloadTasks()</code>：取得已保存的下載紀錄。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_11">資料流程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>Popup</code> → <code>Chrome Storage</code> → 保存設定。</li>
-<li><code>Popup</code> ↔ <code>background.js</code> → 查詢任務、取消下載。</li>
-<li><code>background.js</code> → <code>Chrome Storage</code> → <code>Popup</code> 更新下載狀態。</li>
-</ul>
-<h3 id="_12">互動關係<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>popup.html</code>：提供視窗結構。</li>
-<li><code>popup.css</code>：負責視窗外觀。</li>
-<li><code>content.js</code>：透過 Chrome Storage 共用下載按鈕設定。</li>
-<li><code>background.js</code>：提供下載任務資料與控制功能。</li>
-</ul>
-<h2 id="hostexamplejson-hostjsonnative-host">host.example.json / host.json｜Native Host 設定<a class="headerlink" href="#hostexamplejson-hostjsonnative-host" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 告訴 Chrome 如何找到本機 Python 程式，以及允許哪些擴充功能連線。</p>
-<ul>
-<li><code>host.example.json</code>：提供其他使用者參考的設定範本。</li>
-<li><code>host.json</code>：實際使用的設定檔，包含本機啟動路徑與 Extension ID。</li>
-<li><code>name</code>：Native Host 名稱，對應 <code>background.js</code> 的 <code>HOST_NAME</code>。</li>
-<li><code>path</code>：指定啟動程式 <code>host.bat</code>。</li>
-<li><code>allowed_origins</code>：限制哪些 Chrome Extension 可以連線。</li>
-<li><code>type: stdio</code>：使用標準輸入與輸出傳遞訊息。</li>
-</ul>
-<p><strong>互動關係：</strong></p>
-<p><code>background.js</code> → <code>Chrome Native Messaging</code> → <code>host.json</code>（Chrome 查找註冊設定）→ <code>host.bat</code> → <code>host.py</code></p>
-<h2 id="hostbatpython">host.bat｜Python 啟動腳本<a class="headerlink" href="#hostbatpython" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 讓 Chrome 在 Windows 上啟動 Python Native Host。</p>
-<ul>
-<li><code>py -3.13</code>：使用 Python 3.13 執行程式。</li>
-<li><code>%~dp0</code>：取得批次檔所在資料夾路徑，確保能找到 <code>host.py</code>。</li>
-</ul>
-<p><strong>互動關係：</strong></p>
-<p><code>host.json</code> → <code>host.bat</code> → <code>host.py</code></p>
-<h2 id="hostpynative-messaging">host.py｜Native Messaging 通訊入口<a class="headerlink" href="#hostpynative-messaging" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 接收 Chrome 傳來的指令，呼叫 Python 下載模組，再回傳下載結果。</p>
-<h3 id="_13">核心架構<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>訊息接收與回傳</strong></p>
-<ul>
-<li><code>read_message()</code>：讀取 Chrome 傳來的 JSON 訊息。</li>
-<li><code>send_message()</code>：將 Python 的執行結果傳回 Chrome。</li>
-<li>使用 <code>stdin / stdout</code> 與 Chrome 雙向通訊。</li>
-</ul>
-</li>
-<li>
-<p><strong>指令處理</strong></p>
-<ul>
-<li><code>main()</code>：持續接收與處理 Chrome 指令。</li>
-<li><code>ping</code>：測試 Native Host 是否正常連線。</li>
-<li><code>download</code>：呼叫 <code>downloader.py</code> 執行影片下載。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載結果回報</strong></p>
-<ul>
-<li><code>on_progress()</code>：將下載進度回傳 Chrome。</li>
-<li>回傳 <code>completed</code>、<code>skipped</code>、<code>error</code> 等事件。</li>
-<li><code>requestId</code>：讓 Chrome 知道訊息屬於哪個下載任務。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_14">資料流程<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p><code>background.js</code> → <code>Native Messaging</code> → <code>host.py</code> → <code>downloader.py</code></p>
-<p>下載進度與結果沿相反方向回傳。</p>
-<h3 id="_15">重要觀念<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>Native Host</code>：在電腦上執行、負責與 Chrome 擴充功能通訊的程式。</li>
-<li><code>stdin / stdout</code>：程式接收與輸出訊息的管道。</li>
-<li><code>JSON</code>：Chrome 與 Python 交換資料的格式。</li>
-<li><code>struct</code>：處理 Native Messaging 要求的訊息長度資訊。</li>
-<li><code>progress_callback</code>：下載過程中，讓 <code>downloader.py</code> 回報進度。</li>
-</ul>
-<h2 id="downloaderpy">downloader.py｜影片下載核心<a class="headerlink" href="#downloaderpy" title="Permanent link">&para;</a></h2>
-<p><strong>用途：</strong> 使用 yt-dlp 解析與下載影片，處理畫質、檔案命名、下載進度及備援來源。</p>
-<h3 id="_16">核心架構<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>下載準備</strong></p>
-<ul>
-<li><code>download_video()</code>：接收影片網址、下載路徑與相關參數。</li>
-<li>驗證網址與路徑，自動建立下載資料夾。</li>
-</ul>
-</li>
-<li>
-<p><strong>yt-dlp 下載設定</strong></p>
-<ul>
-<li><code>yt_dlp.YoutubeDL()</code>：使用 yt-dlp 的 Python API 下載影片。</li>
-<li>優先選擇最佳畫質與音訊，必要時透過 FFmpeg 合併為 MP4。</li>
-<li>自訂檔名格式：<code>影片標題 [解析度].副檔名</code>。</li>
-<li>支援續傳，避免覆寫既有檔案。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載進度與結果</strong></p>
-<ul>
-<li><code>report_progress()</code>：每秒回報下載進度、速度、檔案大小與剩餘時間。</li>
-<li><code>progress_callback</code>：將下載資訊交給 <code>host.py</code>，再回傳 Chrome。</li>
-<li>下載完成回傳結果，失敗則回傳錯誤資訊。</li>
-</ul>
-</li>
-<li>
-<p><strong>下載備援與標題處理</strong></p>
-<ul>
-<li>優先解析原始網址，下載失敗時嘗試 HLS 備援網址。</li>
-<li><code>Referer</code>：提供來源網站資訊，協助處理部分網站的存取限制。</li>
-<li><code>fix_video_title()</code>：當 yt-dlp 無法取得合適標題時，使用網頁標題替代。</li>
-</ul>
-</li>
-</ol>
-<h3 id="_17">資料流程<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
-<p><code>host.py</code> → <code>download_video()</code> → <code>yt-dlp</code> → <code>FFmpeg（需要時）</code> → <code>本機影片檔案</code></p>
-<p>下載進度與結果：<code>downloader.py</code> → <code>host.py</code> → <code>background.js</code> → <code>popup.js</code></p>
-<h3 id="_18">重要觀念<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>yt-dlp</code>：負責解析影片來源與執行下載的核心工具。</li>
-<li><code>FFmpeg</code>：負責影音合併與必要的格式處理。</li>
-<li><code>progress_hooks</code>：yt-dlp 提供的下載進度回報機制。</li>
-<li><code>fallback_url</code>：主要網址下載失敗時，改用備援 HLS 來源。</li>
-<li><code>PostProcessor</code>：yt-dlp 的處理機制，這裡用於修正影片標題。</li>
-<li><code>stdout / stderr</code>：將一般輸出導向 stderr，避免干擾 Native Messaging 通訊。</li>
-</ul>
+<h3 id="branch">Branch<a class="headerlink" href="#branch" title="Permanent link">&para;</a></h3>
+<p><code>feat/admin-products</code></p>
+<h3 id="commit-history">Commit History<a class="headerlink" href="#commit-history" title="Permanent link">&para;</a></h3>
+<pre><code class="language-text">feat(admin/products): set up admin product resource
+feat(admin/products): implement product management flow
+feat(ui): enhance admin product management interface
+</code></pre>
 
 
 
@@ -3876,10 +3998,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
