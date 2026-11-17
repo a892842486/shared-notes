@@ -69,27 +69,53 @@
 
 結論：Rails 適合快速開發完整產品；Java / C# 在台灣企業後端市場的選擇通常較廣。
 
+## 職缺與薪資觀念
+
+影響軟體工程師薪資的主要因素：
+
+1. **工作經驗**：Junior、Mid-level、Senior。
+2. **職務類型**：Web、AI、系統底層、雲端等。
+3. **產業與公司**：金融、科技、外商、新創、SI 等。
+4. **技術能力**：系統設計、資料庫、效能、安全、維運。
+5. **工作地點與語言能力**：台灣本地、海外、遠端職缺。
+
+### 重點
+
+- 職缺數量多，不代表薪資一定最高。
+- 高薪職缺多，不代表 Junior 容易進入。
+- 同一種程式語言，在不同產業與職務的薪資可能差很多。
+- 海外遠端職缺通常更重視實務經驗、獨立開發與溝通能力。
+
+**結論：** 選擇程式語言時，同時考慮職缺數量、入門門檻、薪資與發展方向，不必只看單一指標。
+
 ## 技術層級補充
 
 ```text
-程式語言 → Runtime（執行環境）→ Framework（框架）→ Web Backend
+程式語言（用什麼語言寫）
+    +
+Runtime（讓程式能執行）
+    +
+Framework（提供開發工具與架構）
+    ↓
+Web Backend（使用上述技術開發的後端程式）
+    → 接收 HTTP 請求
+    → 處理商業邏輯
+    → 操作資料庫
+    → 回傳結果
 ```
-
-### 基本概念
-
-- **程式語言**：用來撰寫程式，例如 JavaScript、Python、Ruby。
-- **Runtime**：提供程式執行所需的環境。
-- **Framework**：提供現成的開發架構、工具與常用功能，減少重複開發。
-- **Web Backend**：處理請求、商業邏輯、資料庫操作等伺服器端功能。
 
 ### 常見組合
 
 ```text
-JavaScript → Node.js → Express / NestJS → Web Backend
+JavaScript → Node.js → Express / NestJS
 
-Python → Python 執行環境 → Django / FastAPI / Flask → Web Backend
+Python → Python 執行環境 → Django / FastAPI / Flask
 
-Ruby → Ruby 執行環境 → Ruby on Rails → Web Backend
+Ruby → Ruby 執行環境 → Ruby on Rails
+
+Java → JVM → Spring Boot
+
+C# → .NET → ASP.NET Core
 ```
 
 ### 重點
