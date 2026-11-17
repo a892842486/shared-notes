@@ -125,6 +125,70 @@
          <lastmod>2026-11-17</lastmod>
     </url>
     <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/00-%E7%94%A2%E6%A5%AD-00-programming-language-basics/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/00-%E7%94%A2%E6%A5%AD-01-software-overview/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/00-%E7%94%A2%E6%A5%AD-02-web-basics/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/00-%E7%94%A2%E6%A5%AD-03-web-job/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/00-%E7%94%A2%E6%A5%AD-04-game-job/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/00-%E7%94%A2%E6%A5%AD-05-desktop-app/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/01-c%E5%AE%B6%E6%97%8F-00-overview/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/01-c%E5%AE%B6%E6%97%8F-01-c/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/01-c%E5%AE%B6%E6%97%8F-02-c%2B%2B/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/01-c%E5%AE%B6%E6%97%8F-03-c%23/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/02-web-java/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/02-web-js-ts/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/02-web-ruby-on-rails/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/03-%E9%80%9A%E7%94%A8%E5%92%8C%E5%BE%8C%E7%AB%AF-go/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/03-%E9%80%9A%E7%94%A8%E5%92%8C%E5%BE%8C%E7%AB%AF-python/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://a892842486.github.io/shared-notes/Tech/programming/software-map/04-%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E8%88%87%E8%B7%A8%E9%A0%98%E5%9F%9F-cloud-devops/</loc>
+         <lastmod>2026-11-17</lastmod>
+    </url>
+    <url>
          <loc>https://a892842486.github.io/shared-notes/Tech/remote-access/00-%E9%81%A0%E7%AB%AF%E9%80%A3%E7%B7%9A%E6%96%B9%E5%BC%8F/</loc>
          <lastmod>2026-11-17</lastmod>
     </url>
@@ -230,70 +294,6 @@
     </url>
     <url>
          <loc>https://a892842486.github.io/shared-notes/productivity/work/git-branch-workflow/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/00-%E7%94%A2%E6%A5%AD-00-programming-language-basics/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/00-%E7%94%A2%E6%A5%AD-01-software-overview/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/00-%E7%94%A2%E6%A5%AD-02-web-basics/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/00-%E7%94%A2%E6%A5%AD-03-web-job/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/00-%E7%94%A2%E6%A5%AD-04-game-job/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/00-%E7%94%A2%E6%A5%AD-05-desktop-app/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/01-c%E5%AE%B6%E6%97%8F-00-overview/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/01-c%E5%AE%B6%E6%97%8F-01-c/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/01-c%E5%AE%B6%E6%97%8F-02-c%2B%2B/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/01-c%E5%AE%B6%E6%97%8F-03-c%23/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/02-web-java/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/02-web-js-ts/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/02-web-ruby-on-rails/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/03-%E9%80%9A%E7%94%A8%E5%92%8C%E5%BE%8C%E7%AB%AF-go/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/03-%E9%80%9A%E7%94%A8%E5%92%8C%E5%BE%8C%E7%AB%AF-python/</loc>
-         <lastmod>2026-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://a892842486.github.io/shared-notes/productivity/work/software-map/04-%E5%9F%BA%E7%A4%8E%E8%A8%AD%E6%96%BD%E8%88%87%E8%B7%A8%E9%A0%98%E5%9F%9F-cloud-devops/</loc>
          <lastmod>2026-11-17</lastmod>
     </url>
     <url>
